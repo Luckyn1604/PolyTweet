@@ -118,19 +118,24 @@ public class Canal implements Serializable {
 
 	public void demanderAbonnement(Utilisateur utilisateur){
 		this.attente.add(utilisateur);
+		utilisateur.getCanalAbonnes().add(this);
 	}
 	
 	public void accepterAbonne(Utilisateur utilisateur){
-		this.attente.remove(utilisateur);
 		this.abonnes.add(utilisateur);
+		utilisateur.getCanalAbonnes().add(this);
+		this.attente.remove(utilisateur);
+		utilisateur.getCanalAttente().remove(this);
 	}
 	
 	public void refuserAbonne(Utilisateur utilisateur) {
 		this.attente.remove(utilisateur);
+		utilisateur.getCanalAttente().remove(this);
 	}	
 	
 	public void supprimerAbonne(Utilisateur utilisateur){
 		this.abonnes.remove(utilisateur);
+		utilisateur.getCanalAbonnes().remove(this);
 	}
 	
 	public Set<Message> getMessages() {
@@ -159,18 +164,22 @@ public class Canal implements Serializable {
 
 	public void ajouterModerateur(Utilisateur moderateur){
 		this.moderateurs.add(moderateur);
+		moderateur.getCanalModerateurs().add(this);
 	}
 	
 	public void supprimerModerateur(Utilisateur moderateur){
 		this.moderateurs.remove(moderateur);
+		moderateur.getCanalModerateurs().remove(this);
 	}
 	
 	public void ajouterProprietaire(Utilisateur proprietaire){
 		this.proprietaires.add(proprietaire);
+		proprietaire.getCanalProprietaires().add(this);
 	}
 	
 	public void supprimerProprietaire(Utilisateur proprietaire){
 		this.proprietaires.remove(proprietaire);
+		proprietaire.getCanalProprietaires().remove(this);
 	}
 
 	public Set<Utilisateur> getProprietaires() {

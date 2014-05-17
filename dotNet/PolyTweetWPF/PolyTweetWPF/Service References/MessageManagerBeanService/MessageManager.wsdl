@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://domain.j2e/" name="MessageManager" targetNamespace="http://domain.j2e/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://domain.j2e/" elementFormDefault="unqualified" targetNamespace="http://domain.j2e/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="create" type="tns:create" />
+      <xs:element name="createResponse" type="tns:createResponse" />
+      <xs:element name="delete" type="tns:delete" />
+      <xs:element name="deleteResponse" type="tns:deleteResponse" />
+      <xs:complexType name="delete">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="create">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element minOccurs="0" name="arg1" type="tns:canal" />
+          <xs:element minOccurs="0" name="arg2" type="tns:utilisateur" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="canal">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="abonnes" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="attente" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messages" nillable="true" type="tns:message" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="moderateurs" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="proprietaires" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="tag" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="tns:typeCanal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="utilisateur">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAbonnes" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAttente" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalModerateurs" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalProprietaires" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" name="login" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messagesEnvoyes" nillable="true" type="tns:message" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="message">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="pieceJointe">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="createResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:message" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="typeCanal">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PUBLIC" />
+          <xs:enumeration value="PRIVE" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="create">
+    <wsdl:part name="parameters" element="ns1:create" />
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+    <wsdl:part name="parameters" element="ns1:createResponse" />
+  </wsdl:message>
+  <wsdl:message name="delete">
+    <wsdl:part name="parameters" element="ns1:delete" />
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="ns1:deleteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MessageManager">
+    <wsdl:operation name="delete">
+      <wsdl:input name="delete" message="ns1:delete" />
+      <wsdl:output name="deleteResponse" message="ns1:deleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <wsdl:input name="create" message="ns1:create" />
+      <wsdl:output name="createResponse" message="ns1:createResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://domain.j2e/" name="UtilisateurManager" targetNamespace="http://domain.j2e/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://domain.j2e/" elementFormDefault="unqualified" targetNamespace="http://domain.j2e/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="accepterAbonnement" type="tns:accepterAbonnement" />
+      <xs:element name="accepterAbonnementResponse" type="tns:accepterAbonnementResponse" />
+      <xs:element name="ajouterMessage" type="tns:ajouterMessage" />
+      <xs:element name="ajouterMessageResponse" type="tns:ajouterMessageResponse" />
+      <xs:element name="ajouterModerateur" type="tns:ajouterModerateur" />
+      <xs:element name="ajouterModerateurResponse" type="tns:ajouterModerateurResponse" />
+      <xs:element name="ajouterProprietaire" type="tns:ajouterProprietaire" />
+      <xs:element name="ajouterProprietaireResponse" type="tns:ajouterProprietaireResponse" />
+      <xs:element name="consulterMessages" type="tns:consulterMessages" />
+      <xs:element name="consulterMessagesResponse" type="tns:consulterMessagesResponse" />
+      <xs:element name="create" type="tns:create" />
+      <xs:element name="createResponse" type="tns:createResponse" />
+      <xs:element name="delete" type="tns:delete" />
+      <xs:element name="deleteResponse" type="tns:deleteResponse" />
+      <xs:element name="demandeAbonnement" type="tns:demandeAbonnement" />
+      <xs:element name="demandeAbonnementResponse" type="tns:demandeAbonnementResponse" />
+      <xs:element name="refuserAbonnement" type="tns:refuserAbonnement" />
+      <xs:element name="refuserAbonnementResponse" type="tns:refuserAbonnementResponse" />
+      <xs:element name="supprimerMessage" type="tns:supprimerMessage" />
+      <xs:element name="supprimerMessageResponse" type="tns:supprimerMessageResponse" />
+      <xs:element name="supprimerModerateur" type="tns:supprimerModerateur" />
+      <xs:element name="supprimerModerateurResponse" type="tns:supprimerModerateurResponse" />
+      <xs:element name="supprimerProprietaire" type="tns:supprimerProprietaire" />
+      <xs:element name="supprimerProprietaireResponse" type="tns:supprimerProprietaireResponse" />
+      <xs:complexType name="demandeAbonnement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="utilisateur">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAbonnes" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAttente" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalModerateurs" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalProprietaires" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" name="login" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messagesEnvoyes" nillable="true" type="tns:message" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="canal">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="abonnes" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="attente" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messages" nillable="true" type="tns:message" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="moderateurs" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="proprietaires" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="tag" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="tns:typeCanal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="message">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="pieceJointe">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="demandeAbonnementResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="delete">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consulterMessages">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consulterMessagesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:message" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="supprimerModerateur">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="supprimerModerateurResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="create">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:utilisateur" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ajouterMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="tns:message" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ajouterMessageResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accepterAbonnement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="accepterAbonnementResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ajouterModerateur">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ajouterModerateurResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="supprimerProprietaire">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="supprimerProprietaireResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="supprimerMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="tns:message" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="supprimerMessageResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ajouterProprietaire">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ajouterProprietaireResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refuserAbonnement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refuserAbonnementResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="typeCanal">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PUBLIC" />
+          <xs:enumeration value="PRIVE" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="consulterMessages">
+    <wsdl:part name="parameters" element="ns1:consulterMessages" />
+  </wsdl:message>
+  <wsdl:message name="create">
+    <wsdl:part name="parameters" element="ns1:create" />
+  </wsdl:message>
+  <wsdl:message name="refuserAbonnementResponse">
+    <wsdl:part name="parameters" element="ns1:refuserAbonnementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ajouterMessage">
+    <wsdl:part name="parameters" element="ns1:ajouterMessage" />
+  </wsdl:message>
+  <wsdl:message name="demandeAbonnementResponse">
+    <wsdl:part name="parameters" element="ns1:demandeAbonnementResponse" />
+  </wsdl:message>
+  <wsdl:message name="supprimerModerateur">
+    <wsdl:part name="parameters" element="ns1:supprimerModerateur" />
+  </wsdl:message>
+  <wsdl:message name="ajouterMessageResponse">
+    <wsdl:part name="parameters" element="ns1:ajouterMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="accepterAbonnementResponse">
+    <wsdl:part name="parameters" element="ns1:accepterAbonnementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ajouterProprietaireResponse">
+    <wsdl:part name="parameters" element="ns1:ajouterProprietaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="supprimerModerateurResponse">
+    <wsdl:part name="parameters" element="ns1:supprimerModerateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="supprimerProprietaireResponse">
+    <wsdl:part name="parameters" element="ns1:supprimerProprietaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="ajouterModerateurResponse">
+    <wsdl:part name="parameters" element="ns1:ajouterModerateurResponse" />
+  </wsdl:message>
+  <wsdl:message name="ajouterModerateur">
+    <wsdl:part name="parameters" element="ns1:ajouterModerateur" />
+  </wsdl:message>
+  <wsdl:message name="supprimerProprietaire">
+    <wsdl:part name="parameters" element="ns1:supprimerProprietaire" />
+  </wsdl:message>
+  <wsdl:message name="supprimerMessageResponse">
+    <wsdl:part name="parameters" element="ns1:supprimerMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ajouterProprietaire">
+    <wsdl:part name="parameters" element="ns1:ajouterProprietaire" />
+  </wsdl:message>
+  <wsdl:message name="demandeAbonnement">
+    <wsdl:part name="parameters" element="ns1:demandeAbonnement" />
+  </wsdl:message>
+  <wsdl:message name="delete">
+    <wsdl:part name="parameters" element="ns1:delete" />
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+    <wsdl:part name="parameters" element="ns1:createResponse" />
+  </wsdl:message>
+  <wsdl:message name="accepterAbonnement">
+    <wsdl:part name="parameters" element="ns1:accepterAbonnement" />
+  </wsdl:message>
+  <wsdl:message name="refuserAbonnement">
+    <wsdl:part name="parameters" element="ns1:refuserAbonnement" />
+  </wsdl:message>
+  <wsdl:message name="supprimerMessage">
+    <wsdl:part name="parameters" element="ns1:supprimerMessage" />
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="ns1:deleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="consulterMessagesResponse">
+    <wsdl:part name="parameters" element="ns1:consulterMessagesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UtilisateurManager">
+    <wsdl:operation name="demandeAbonnement">
+      <wsdl:input name="demandeAbonnement" message="ns1:demandeAbonnement" />
+      <wsdl:output name="demandeAbonnementResponse" message="ns1:demandeAbonnementResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input name="delete" message="ns1:delete" />
+      <wsdl:output name="deleteResponse" message="ns1:deleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consulterMessages">
+      <wsdl:input name="consulterMessages" message="ns1:consulterMessages" />
+      <wsdl:output name="consulterMessagesResponse" message="ns1:consulterMessagesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerModerateur">
+      <wsdl:input name="supprimerModerateur" message="ns1:supprimerModerateur" />
+      <wsdl:output name="supprimerModerateurResponse" message="ns1:supprimerModerateurResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <wsdl:input name="create" message="ns1:create" />
+      <wsdl:output name="createResponse" message="ns1:createResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ajouterMessage">
+      <wsdl:input name="ajouterMessage" message="ns1:ajouterMessage" />
+      <wsdl:output name="ajouterMessageResponse" message="ns1:ajouterMessageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="accepterAbonnement">
+      <wsdl:input name="accepterAbonnement" message="ns1:accepterAbonnement" />
+      <wsdl:output name="accepterAbonnementResponse" message="ns1:accepterAbonnementResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ajouterModerateur">
+      <wsdl:input name="ajouterModerateur" message="ns1:ajouterModerateur" />
+      <wsdl:output name="ajouterModerateurResponse" message="ns1:ajouterModerateurResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerProprietaire">
+      <wsdl:input name="supprimerProprietaire" message="ns1:supprimerProprietaire" />
+      <wsdl:output name="supprimerProprietaireResponse" message="ns1:supprimerProprietaireResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerMessage">
+      <wsdl:input name="supprimerMessage" message="ns1:supprimerMessage" />
+      <wsdl:output name="supprimerMessageResponse" message="ns1:supprimerMessageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ajouterProprietaire">
+      <wsdl:input name="ajouterProprietaire" message="ns1:ajouterProprietaire" />
+      <wsdl:output name="ajouterProprietaireResponse" message="ns1:ajouterProprietaireResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="refuserAbonnement">
+      <wsdl:input name="refuserAbonnement" message="ns1:refuserAbonnement" />
+      <wsdl:output name="refuserAbonnementResponse" message="ns1:refuserAbonnementResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

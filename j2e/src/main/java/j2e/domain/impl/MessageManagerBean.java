@@ -10,10 +10,12 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
+@WebService
 public class MessageManagerBean implements MessageManager{
 	
 	 @PersistenceContext(unitName = "polytweet-pu")

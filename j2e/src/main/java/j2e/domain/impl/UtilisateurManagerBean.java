@@ -10,15 +10,15 @@ import j2e.domain.UtilisateurManager;
 import j2e.entities.Canal;
 import j2e.entities.Message;
 import j2e.entities.Utilisateur;
-import j2e.entities.Moderateur;
-import j2e.entities.Proprietaire;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
+@WebService
 public class UtilisateurManagerBean implements UtilisateurManager {
 
 	 @PersistenceContext(unitName = "polytweet-pu")
@@ -57,8 +57,7 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	            for(Canal c : utilisateur.getCanalAttente())
 	            	if(c.equals(canal))
 	            		return false;
-	            canal.getAttente().add(utilisateur);
-	            utilisateur.getCanalAttente().add(canal);
+	            canal.demanderAbonnement(utilisateur);
 
 	            entityManager.merge(utilisateur);
 	            entityManager.merge(canal);
@@ -79,7 +78,9 @@ public class UtilisateurManagerBean implements UtilisateurManager {
             		receveurAttente = true;
             
             if(receveurAttente && donneurModerateur){
-					((Moderateur)donneur).accepterAbonne(receveur,canal);
+					donneur.accepterAbonne(receveur,canal);
+					entityManager.merge(receveur);
+					entityManager.merge(canal);
 					return true;
             }
 	    	return false;	    	
@@ -99,7 +100,9 @@ public class UtilisateurManagerBean implements UtilisateurManager {
             		receveurAttente = true;
             
             if(receveurAttente && donneurModerateur){
-					((Moderateur)donneur).refuserAbonne(receveur,canal);
+					donneur.refuserAbonne(receveur,canal);
+					entityManager.merge(receveur);
+					entityManager.merge(canal);
 					return true;
             }
 	    	return false;	    	
@@ -109,13 +112,20 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
-            System.out.println("test " +canal);
-            System.out.println("test " + donneur.getCanalProprietaires());
-            System.out.println(donneur.getCanalProprietaires().contains(canal));
-            if(donneur.getCanalProprietaires().contains(canal)){
-					((Proprietaire)donneur).ajouterModerateur(receveur,canal);
+            
+            for(Canal c : receveur.getCanalModerateurs())
+            	if(c.equals(canal))
+            		return false;
+            
+            for(Canal c : donneur.getCanalModerateurs()) 
+            	if(c.equals(canal)) 
+            	{
+            		donneur.ajouterModerateur(receveur,canal);
+					entityManager.merge(receveur);
+					entityManager.merge(canal);
 					return true;
-            }
+            	}
+
 	    	return false;
 	    }
 	    
@@ -123,8 +133,19 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
-            if(donneur.getCanalProprietaires().contains(canal) && receveur.getCanalModerateurs().contains(canal)){
-					((Proprietaire)donneur).supprimerModerateur(receveur,canal);
+            boolean donneurProprietaire = false;
+            boolean receveurModerateur = false;
+            for(Canal c : donneur.getCanalProprietaires()) 
+            	if(c.equals(canal)) 
+            		donneurProprietaire=true;
+            for(Canal c : receveur.getCanalModerateurs())
+            	if(c.equals(canal))
+            		receveurModerateur= true;
+            
+            if(donneurProprietaire && receveurModerateur){
+					donneur.supprimerModerateur(receveur,canal);
+					entityManager.merge(receveur);
+					entityManager.merge(canal);
 					return true;
             }
 	    	return false;
@@ -134,10 +155,17 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
-            if(donneur.getCanalProprietaires().contains(canal)){
-					((Proprietaire)donneur).ajouterProprietaire(receveur,canal);
+            for(Canal c : receveur.getCanalProprietaires())
+            	if(c.equals(canal))
+            		return false;
+            for(Canal c : donneur.getCanalProprietaires()) 
+            	if(c.equals(canal)) 
+            	{
+					donneur.ajouterProprietaire(receveur,canal);
+					entityManager.merge(receveur);
+					entityManager.merge(canal);
 					return true;
-            }
+            	}
 	    	return false;
 	    }
 	    
@@ -145,9 +173,21 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
-            if(donneur.getCanalProprietaires().contains(canal) && receveur.getCanalModerateurs().contains(canal)){
-					((Proprietaire)donneur).supprimerProprietaire(receveur,canal);
-					return true;
+            boolean receveurProprietaire = false;
+            boolean donneurProprietaire = false;
+            for(Canal c : receveur.getCanalProprietaires())
+            	if(c.equals(canal))
+            		receveurProprietaire = true;
+            for(Canal c : donneur.getCanalProprietaires()) 
+            	if(c.equals(canal)) 
+            		donneurProprietaire = true;
+            
+            if (donneurProprietaire && receveurProprietaire)
+            {
+            	donneur.supprimerProprietaire(receveur,canal);
+            	entityManager.merge(receveur);
+            	entityManager.merge(canal);
+            	return true;
             }
 	    	return false;
 	    }
@@ -155,26 +195,39 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    public boolean ajouterMessage(Utilisateur utilisateur, Message message, String tagCanal){
             Canal canal = canalFinder.findCanalByTag(tagCanal);
             entityManager.merge(utilisateur);
-            boolean abonne = false;
+            for(Message m : canal.getMessages())
+            	if (m.equals(message))
+            		return false;
             for(Canal c : utilisateur.getCanalAbonnes()) 
             	if(c.equals(canal)) 
+            	{
+            		utilisateur.ajouterMessage(message, canal);
+            		entityManager.merge(utilisateur);
+            		entityManager.merge(canal);
             		return true;
-            
-            if(!abonne) return false;
-            
-            canal.getMessages().add(message);
-            utilisateur.getMessagesEnvoyes().add(message);
-
-            entityManager.merge(utilisateur);
-            entityManager.merge(canal);
-            return true;
+            	}
+            return false;
 	    }
 	    
 	    public boolean supprimerMessage(Utilisateur utilisateur, Message message, String tagCanal){
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
             entityManager.merge(utilisateur);
-            if(utilisateur.getCanalModerateurs().contains(canal) && canal.getMessages().contains(message)){
-					((Moderateur)utilisateur).supprimerMessage(message, canal);
+            boolean messageExiste = false;
+            boolean utilisateurSupprime = false;
+            for (Message m : canal.getMessages())
+            	if (m.equals(message))
+            		messageExiste = true;
+            for (Canal c : utilisateur.getCanalModerateurs())
+            	if (c.equals(canal))
+            		utilisateurSupprime = true;
+            if (message.getAuteur().equals(utilisateur))
+            	utilisateurSupprime = true;
+            
+            if(messageExiste && utilisateurSupprime){
+					utilisateur.supprimerMessage(message, canal);
+					entityManager.remove(message);
+					entityManager.merge(canal);
+					entityManager.merge(utilisateur);
 					return true;
             }
 	    	return false;
@@ -195,5 +248,18 @@ public class UtilisateurManagerBean implements UtilisateurManager {
             entityManager.merge(utilisateur);
             entityManager.merge(canal);
             return messages;
+	    }
+	    
+	    public boolean supprimerCanal(Utilisateur utilisateur, String tagCanal){
+	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	    	entityManager.merge(utilisateur);
+	    	for(Canal c : utilisateur.getCanalProprietaires())
+	    		if(c.equals(canal))
+	    		{
+	    			entityManager.remove(canal);
+	    			entityManager.merge(utilisateur);
+	    			return true;
+	    		}
+	    	return false;
 	    }
 }

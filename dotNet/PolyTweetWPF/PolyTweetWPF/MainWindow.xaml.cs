@@ -19,11 +19,18 @@ namespace PolyTweetWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private UtilisateurManagerBeanService.UtilisateurManagerClient utilisateurManager;
+        private UtilisateurFinderService.UtilisateurFinderClient utilisateurFinder;
+        private CanalManagerBeanService.CanalManagerClient canalManager;
+        private CanalFinderService.CanalFinderClient canalFinder;
+        private MessageManagerBeanService.MessageManagerClient messageManager;
+
+
         private string login;
 
         private Dictionary<string, Canal> canaux;
         private void InitData()
-        {
+        {   
 
             Message m1 = new Message("admin", DateTime.Now, "message 1");
             Message m2 = new Message("moi", DateTime.Now.AddDays(-1), "message 2");
@@ -78,6 +85,7 @@ namespace PolyTweetWPF
                 if (c.Value.isPublic || login != "anonyme")
                     ComboBoxCanaux.Items.Add(c.Key);
             }
+
 
         }
 

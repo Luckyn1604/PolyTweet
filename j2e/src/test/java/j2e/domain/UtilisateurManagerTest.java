@@ -93,12 +93,17 @@ public class UtilisateurManagerTest {
     @Test
     public void testDemandeAbonnement() throws Exception{
     	Utilisateur receveur =utilisateurFinder.findUtilisateurByLogin(userTest);
+    	Utilisateur donneur =utilisateurFinder.findUtilisateurByLogin(userTest2);
     	Canal canal =canalFinder.findCanalByTag("tagTest");
     	
         assertTrue(utilisateurManager.demandeAbonnement(receveur,"tagTest"));
         assertFalse(utilisateurManager.demandeAbonnement(receveur,"tagTest"));
         assertTrue(utilisateurFinder.findUtilisateurByLogin(userTest).getCanalAttente().toArray()[0].equals(canal));
         assertTrue(canalFinder.findCanalByTag("tagTest").getAttente().toArray()[0].equals(receveur));
+        
+        utilisateurManager.accepterAbonnement(donneur, receveur, "tagTest");
+        assertTrue(utilisateurFinder.findUtilisateurByLogin(userTest2).getCanalAttente().isEmpty());
+        assertTrue(utilisateurFinder.findUtilisateurByLogin(userTest2).getCanalAbonnes().toArray()[0].equals(canal));
     }
 
 }

@@ -124,6 +124,8 @@
         <version>1.6.0</version>
         <configuration>
           <context>ROOT</context>
+        <tomeeVersion>1.6.0</tomeeVersion>
+      <tomeeClassifier>plus</tomeeClassifier>
         </configuration>
       </plugin>
       <plugin>

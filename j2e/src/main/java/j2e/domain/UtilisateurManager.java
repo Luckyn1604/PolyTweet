@@ -2,9 +2,12 @@ package j2e.domain;
 
 import java.util.Set;
 
+import javax.jws.WebService;
+
 import j2e.entities.Message;
 import j2e.entities.Utilisateur;
 
+@WebService
 public interface UtilisateurManager {
 	
 	public boolean delete(String login);

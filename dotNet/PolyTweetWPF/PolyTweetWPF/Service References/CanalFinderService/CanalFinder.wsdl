@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://domain.j2e/" name="CanalFinder" targetNamespace="http://domain.j2e/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://domain.j2e/" elementFormDefault="unqualified" targetNamespace="http://domain.j2e/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="findCanalByAbonne" type="tns:findCanalByAbonne" />
+      <xs:element name="findCanalByAbonneResponse" type="tns:findCanalByAbonneResponse" />
+      <xs:element name="findCanalByProprietaire" type="tns:findCanalByProprietaire" />
+      <xs:element name="findCanalByProprietaireResponse" type="tns:findCanalByProprietaireResponse" />
+      <xs:element name="findCanalByTag" type="tns:findCanalByTag" />
+      <xs:element name="findCanalByTagResponse" type="tns:findCanalByTagResponse" />
+      <xs:element name="findCanalByType" type="tns:findCanalByType" />
+      <xs:element name="findCanalByTypeResponse" type="tns:findCanalByTypeResponse" />
+      <xs:complexType name="findCanalByAbonne">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findCanalByAbonneResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:canal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="canal">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="abonnes" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="attente" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messages" nillable="true" type="tns:message" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="moderateurs" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="proprietaires" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="tag" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="tns:typeCanal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="utilisateur">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAbonnes" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAttente" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalModerateurs" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalProprietaires" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" name="login" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messagesEnvoyes" nillable="true" type="tns:message" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="message">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="pieceJointe">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="findCanalByProprietaire">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findCanalByProprietaireResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:canal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findCanalByType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:typeCanal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findCanalByTypeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:canal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findCanalByTag">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findCanalByTagResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:canal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="typeCanal">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PUBLIC" />
+          <xs:enumeration value="PRIVE" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findCanalByProprietaireResponse">
+    <wsdl:part name="parameters" element="ns1:findCanalByProprietaireResponse" />
+  </wsdl:message>
+  <wsdl:message name="findCanalByTagResponse">
+    <wsdl:part name="parameters" element="ns1:findCanalByTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="findCanalByAbonneResponse">
+    <wsdl:part name="parameters" element="ns1:findCanalByAbonneResponse" />
+  </wsdl:message>
+  <wsdl:message name="findCanalByType">
+    <wsdl:part name="parameters" element="ns1:findCanalByType" />
+  </wsdl:message>
+  <wsdl:message name="findCanalByTag">
+    <wsdl:part name="parameters" element="ns1:findCanalByTag" />
+  </wsdl:message>
+  <wsdl:message name="findCanalByTypeResponse">
+    <wsdl:part name="parameters" element="ns1:findCanalByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="findCanalByProprietaire">
+    <wsdl:part name="parameters" element="ns1:findCanalByProprietaire" />
+  </wsdl:message>
+  <wsdl:message name="findCanalByAbonne">
+    <wsdl:part name="parameters" element="ns1:findCanalByAbonne" />
+  </wsdl:message>
+  <wsdl:portType name="CanalFinder">
+    <wsdl:operation name="findCanalByAbonne">
+      <wsdl:input name="findCanalByAbonne" message="ns1:findCanalByAbonne" />
+      <wsdl:output name="findCanalByAbonneResponse" message="ns1:findCanalByAbonneResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findCanalByProprietaire">
+      <wsdl:input name="findCanalByProprietaire" message="ns1:findCanalByProprietaire" />
+      <wsdl:output name="findCanalByProprietaireResponse" message="ns1:findCanalByProprietaireResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findCanalByType">
+      <wsdl:input name="findCanalByType" message="ns1:findCanalByType" />
+      <wsdl:output name="findCanalByTypeResponse" message="ns1:findCanalByTypeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findCanalByTag">
+      <wsdl:input name="findCanalByTag" message="ns1:findCanalByTag" />
+      <wsdl:output name="findCanalByTagResponse" message="ns1:findCanalByTagResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

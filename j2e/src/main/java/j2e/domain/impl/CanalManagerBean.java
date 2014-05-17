@@ -11,10 +11,12 @@ import j2e.entities.Utilisateur;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
+@WebService
 public class CanalManagerBean implements CanalManager {
 
 	@PersistenceContext(unitName = "polytweet-pu")

@@ -4,8 +4,10 @@ import j2e.domain.UtilisateurFinder;
 import j2e.entities.Utilisateur;
 
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 @Stateless
+@WebService
 public class UtilisateurFinderBean extends FinderBean implements UtilisateurFinder {
 
 	public Utilisateur findUtilisateurByLogin(String login){

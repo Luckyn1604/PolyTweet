@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://domain.j2e/" name="CanalManager" targetNamespace="http://domain.j2e/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://domain.j2e/" elementFormDefault="unqualified" targetNamespace="http://domain.j2e/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ajouterMessage" type="tns:ajouterMessage" />
+      <xs:element name="ajouterMessageResponse" type="tns:ajouterMessageResponse" />
+      <xs:element name="creer" type="tns:creer" />
+      <xs:element name="creerResponse" type="tns:creerResponse" />
+      <xs:element name="supprimer" type="tns:supprimer" />
+      <xs:element name="supprimerResponse" type="tns:supprimerResponse" />
+      <xs:complexType name="supprimer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="supprimerResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="creer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element minOccurs="0" name="arg1" type="tns:typeCanal" />
+          <xs:element minOccurs="0" name="arg2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="creerResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:canal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="canal">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="abonnes" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="attente" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messages" nillable="true" type="tns:message" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="moderateurs" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="proprietaires" nillable="true" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="tag" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="tns:typeCanal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="utilisateur">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAbonnes" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAttente" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalModerateurs" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalProprietaires" nillable="true" type="tns:canal" />
+          <xs:element minOccurs="0" name="login" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="messagesEnvoyes" nillable="true" type="tns:message" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="message">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="pieceJointe">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="ajouterMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:message" />
+          <xs:element minOccurs="0" name="arg1" type="tns:canal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ajouterMessageResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="typeCanal">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PUBLIC" />
+          <xs:enumeration value="PRIVE" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="supprimerResponse">
+    <wsdl:part name="parameters" element="ns1:supprimerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ajouterMessage">
+    <wsdl:part name="parameters" element="ns1:ajouterMessage" />
+  </wsdl:message>
+  <wsdl:message name="ajouterMessageResponse">
+    <wsdl:part name="parameters" element="ns1:ajouterMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="creer">
+    <wsdl:part name="parameters" element="ns1:creer" />
+  </wsdl:message>
+  <wsdl:message name="creerResponse">
+    <wsdl:part name="parameters" element="ns1:creerResponse" />
+  </wsdl:message>
+  <wsdl:message name="supprimer">
+    <wsdl:part name="parameters" element="ns1:supprimer" />
+  </wsdl:message>
+  <wsdl:portType name="CanalManager">
+    <wsdl:operation name="supprimer">
+      <wsdl:input name="supprimer" message="ns1:supprimer" />
+      <wsdl:output name="supprimerResponse" message="ns1:supprimerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="creer">
+      <wsdl:input name="creer" message="ns1:creer" />
+      <wsdl:output name="creerResponse" message="ns1:creerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ajouterMessage">
+      <wsdl:input name="ajouterMessage" message="ns1:ajouterMessage" />
+      <wsdl:output name="ajouterMessageResponse" message="ns1:ajouterMessageResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
