@@ -20,11 +20,11 @@ namespace PolyTweetWPF
     public partial class MainWindow : Window
     {
         private UtilisateurManagerBeanService.UtilisateurManagerClient utilisateurManager;
-        private UtilisateurFinderService.UtilisateurFinderClient utilisateurFinder;
+        private UtilisateurFinderBeanService.UtilisateurFinderClient utilisateurFinder;
         private CanalManagerBeanService.CanalManagerClient canalManager;
-        private CanalFinderService.CanalFinderClient canalFinder;
+        private CanalFinderBeanService.CanalFinderClient canalFinder;
         private MessageManagerBeanService.MessageManagerClient messageManager;
-        
+
         private string login;
 
         private Dictionary<string, Canal> canaux;
@@ -51,7 +51,8 @@ namespace PolyTweetWPF
             canaux.Add(c3.tag, c3);
 
             canalManager.creer("canalPublic", "PUBLIC", "toto");
-            canalManager.creer("canalPrive", "PRIVEE", "test");
+            canalManager.creer("canalPrive", "PRIVE", "test");
+//            long msg = messageManager.create("voici un message", "canalPublic", "toto");
         }
 
         public MainWindow() : this("anonyme")
@@ -59,6 +60,12 @@ namespace PolyTweetWPF
 
         public MainWindow(string login)
         {
+            utilisateurManager = new UtilisateurManagerBeanService.UtilisateurManagerClient();
+            utilisateurFinder = new UtilisateurFinderBeanService.UtilisateurFinderClient();
+            canalManager = new CanalManagerBeanService.CanalManagerClient();
+            canalFinder = new CanalFinderBeanService.CanalFinderClient();
+            messageManager = new MessageManagerBeanService.MessageManagerClient();
+
             this.login = login;
             InitializeComponent();
             InitData();
@@ -74,6 +81,9 @@ namespace PolyTweetWPF
                 newCanalTag.Visibility = Visibility.Visible;
                 informationCreationCanal.Visibility = Visibility.Hidden;
                 utilisateurManager.create(login);
+                if (canalManager.afficherTagByAbonne(login) != null)
+                    foreach (var c in canalManager.afficherTagByAbonne(login)) 
+                        ComboBoxCanaux.Items.Add(c);
             }
             else
             {
@@ -82,19 +92,20 @@ namespace PolyTweetWPF
 
                 
             }
-            foreach (var c in canaux)
+           foreach (var c in canaux)
             {
                 if (c.Value.isPublic || login != "anonyme")
                     ComboBoxCanaux.Items.Add(c.Key);
             }
-            foreach (var c in canalFinder.findCanalByAbonne(login)) ComboBoxCanaux.Items.Add(c.tag);
-            foreach (var c in canalFinder.findCanalByType())
 
+            if (canalManager.afficherTagByType("PUBLIC") != null)
+                foreach (var c in canalManager.afficherTagByType("PUBLIC")) 
+                    ComboBoxCanaux.Items.Add(c);
         }
 
         private void refreshMessages(object sender, RoutedEventArgs e)
         {
-            DataGridMessage.ItemsSource = canaux[ComboBoxCanaux.SelectedItem.ToString()].messages.AsParallel();
+           DataGridMessage.ItemsSource = canaux[ComboBoxCanaux.SelectedItem.ToString()].messages.AsParallel();
         }
 
         private void buttonConnexion_Click(object sender, RoutedEventArgs e)
