@@ -395,12 +395,12 @@ namespace PolyTweetWPF.CanalFinderService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.CanalFinderService.typeCanal arg0;
+        public string arg0;
         
         public findCanalByType() {
         }
         
-        public findCanalByType(PolyTweetWPF.CanalFinderService.typeCanal arg0) {
+        public findCanalByType(string arg0) {
             this.arg0 = arg0;
         }
     }
@@ -537,7 +537,7 @@ namespace PolyTweetWPF.CanalFinderService {
             return base.Channel.findCanalByType(request);
         }
         
-        public PolyTweetWPF.CanalFinderService.canal[] findCanalByType(PolyTweetWPF.CanalFinderService.typeCanal arg0) {
+        public PolyTweetWPF.CanalFinderService.canal[] findCanalByType(string arg0) {
             PolyTweetWPF.CanalFinderService.findCanalByType inValue = new PolyTweetWPF.CanalFinderService.findCanalByType();
             inValue.arg0 = arg0;
             PolyTweetWPF.CanalFinderService.findCanalByTypeResponse retVal = ((PolyTweetWPF.CanalFinderService.CanalFinder)(this)).findCanalByType(inValue);
@@ -549,7 +549,7 @@ namespace PolyTweetWPF.CanalFinderService {
             return base.Channel.findCanalByTypeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.CanalFinderService.findCanalByTypeResponse> findCanalByTypeAsync(PolyTweetWPF.CanalFinderService.typeCanal arg0) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.CanalFinderService.findCanalByTypeResponse> findCanalByTypeAsync(string arg0) {
             PolyTweetWPF.CanalFinderService.findCanalByType inValue = new PolyTweetWPF.CanalFinderService.findCanalByType();
             inValue.arg0 = arg0;
             return ((PolyTweetWPF.CanalFinderService.CanalFinder)(this)).findCanalByTypeAsync(inValue);
