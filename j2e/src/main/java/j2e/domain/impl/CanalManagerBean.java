@@ -1,5 +1,8 @@
 package j2e.domain.impl;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import j2e.application.TypeCanal;
 import j2e.domain.CanalFinder;
 import j2e.domain.CanalManager;
@@ -76,6 +79,20 @@ public class CanalManagerBean implements CanalManager {
 			entityManager.remove(message);
 		}
 		return true;
+	}
+
+
+	public Set<String> afficherTagByAbonne(String abonneLogin) {
+		Set<String> set = new HashSet<String>();
+		for (Canal c : canalFinder.findCanalByAbonne(abonneLogin)) set.add(c.getTag());
+		return set;
+	}
+
+
+	public Set<String> afficherTagByType(String typeCanal) {
+		Set<String> set = new HashSet<String>();
+		for (Canal c : canalFinder.findCanalByType(typeCanal)) set.add(c.getTag());
+		return set;
 	}
 
 }

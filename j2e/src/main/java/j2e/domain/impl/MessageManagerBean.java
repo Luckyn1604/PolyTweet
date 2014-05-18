@@ -48,6 +48,7 @@ public class MessageManagerBean implements MessageManager{
 	        entityManager.merge(canal);
 	        entityManager.merge(auteur);
 	        Message message = new Message(texte, canal, auteur);
+	        canal.ajouterMessage(message);
 	        entityManager.persist(message);
 	        entityManager.merge(canal);
 	        entityManager.merge(auteur);
