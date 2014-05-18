@@ -131,6 +131,9 @@
     <None Include="Service References\CanalManagerBeanService\PolyTweetWPF.CanalManagerBeanService.creerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\CanalManagerBeanService\PolyTweetWPF.CanalManagerBeanService.supprimerMessageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\CanalManagerBeanService\PolyTweetWPF.CanalManagerBeanService.supprimerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

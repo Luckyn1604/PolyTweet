@@ -41,9 +41,9 @@ public class CanalFinderBean extends FinderBean implements CanalFinder  {
 	}
 
 
-	public Set<Canal> findCanalByType(TypeCanal type) {
+	public Set<Canal> findCanalByType(String type) {
 		try {
-			return new HashSet<Canal>(createdQueryWithOneParameter(Canal.class, "type", type).getResultList());
+			return new HashSet<Canal>(createdQueryWithOneParameter(Canal.class, "type", TypeCanal.valueOf(type)).getResultList());
 		} catch (Exception ex){
 			return null;
 		}

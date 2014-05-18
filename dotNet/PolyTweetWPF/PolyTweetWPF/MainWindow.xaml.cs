@@ -49,6 +49,9 @@ namespace PolyTweetWPF
             canaux.Add(c1.tag, c1);
             canaux.Add(c2.tag, c2);
             canaux.Add(c3.tag, c3);
+
+            canalManager.creer("canalPublic", "PUBLIC", "toto");
+            canalManager.creer("canalPrive", "PRIVEE", "test");
         }
 
         public MainWindow() : this("anonyme")
@@ -70,6 +73,7 @@ namespace PolyTweetWPF
                 newcanalLabel.Visibility = Visibility.Visible;
                 newCanalTag.Visibility = Visibility.Visible;
                 informationCreationCanal.Visibility = Visibility.Hidden;
+                utilisateurManager.create(login);
             }
             else
             {
@@ -83,7 +87,8 @@ namespace PolyTweetWPF
                 if (c.Value.isPublic || login != "anonyme")
                     ComboBoxCanaux.Items.Add(c.Key);
             }
-
+            foreach (var c in canalFinder.findCanalByAbonne(login)) ComboBoxCanaux.Items.Add(c.tag);
+            foreach (var c in canalFinder.findCanalByType())
 
         }
 

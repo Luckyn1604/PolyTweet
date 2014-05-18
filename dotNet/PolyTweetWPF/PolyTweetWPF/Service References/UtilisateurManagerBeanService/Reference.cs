@@ -124,269 +124,6 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.refuserAbonnementResponse> refuserAbonnementAsync(PolyTweetWPF.UtilisateurManagerBeanService.refuserAbonnement request);
     }
     
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://domain.j2e/")]
-    public partial class utilisateur : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private canal[] canalAbonnesField;
-        
-        private canal[] canalAttenteField;
-        
-        private canal[] canalModerateursField;
-        
-        private canal[] canalProprietairesField;
-        
-        private string loginField;
-        
-        private message[] messagesEnvoyesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("canalAbonnes", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public canal[] canalAbonnes {
-            get {
-                return this.canalAbonnesField;
-            }
-            set {
-                this.canalAbonnesField = value;
-                this.RaisePropertyChanged("canalAbonnes");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("canalAttente", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-        public canal[] canalAttente {
-            get {
-                return this.canalAttenteField;
-            }
-            set {
-                this.canalAttenteField = value;
-                this.RaisePropertyChanged("canalAttente");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("canalModerateurs", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
-        public canal[] canalModerateurs {
-            get {
-                return this.canalModerateursField;
-            }
-            set {
-                this.canalModerateursField = value;
-                this.RaisePropertyChanged("canalModerateurs");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("canalProprietaires", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-        public canal[] canalProprietaires {
-            get {
-                return this.canalProprietairesField;
-            }
-            set {
-                this.canalProprietairesField = value;
-                this.RaisePropertyChanged("canalProprietaires");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string login {
-            get {
-                return this.loginField;
-            }
-            set {
-                this.loginField = value;
-                this.RaisePropertyChanged("login");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("messagesEnvoyes", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
-        public message[] messagesEnvoyes {
-            get {
-                return this.messagesEnvoyesField;
-            }
-            set {
-                this.messagesEnvoyesField = value;
-                this.RaisePropertyChanged("messagesEnvoyes");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://domain.j2e/")]
-    public partial class canal : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private utilisateur[] abonnesField;
-        
-        private utilisateur[] attenteField;
-        
-        private message[] messagesField;
-        
-        private utilisateur[] moderateursField;
-        
-        private utilisateur[] proprietairesField;
-        
-        private string tagField;
-        
-        private typeCanal typeField;
-        
-        private bool typeFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("abonnes", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public utilisateur[] abonnes {
-            get {
-                return this.abonnesField;
-            }
-            set {
-                this.abonnesField = value;
-                this.RaisePropertyChanged("abonnes");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("attente", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-        public utilisateur[] attente {
-            get {
-                return this.attenteField;
-            }
-            set {
-                this.attenteField = value;
-                this.RaisePropertyChanged("attente");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("messages", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=2)]
-        public message[] messages {
-            get {
-                return this.messagesField;
-            }
-            set {
-                this.messagesField = value;
-                this.RaisePropertyChanged("messages");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("moderateurs", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-        public utilisateur[] moderateurs {
-            get {
-                return this.moderateursField;
-            }
-            set {
-                this.moderateursField = value;
-                this.RaisePropertyChanged("moderateurs");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("proprietaires", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
-        public utilisateur[] proprietaires {
-            get {
-                return this.proprietairesField;
-            }
-            set {
-                this.proprietairesField = value;
-                this.RaisePropertyChanged("proprietaires");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string tag {
-            get {
-                return this.tagField;
-            }
-            set {
-                this.tagField = value;
-                this.RaisePropertyChanged("tag");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public typeCanal type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-                this.RaisePropertyChanged("type");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool typeSpecified {
-            get {
-                return this.typeFieldSpecified;
-            }
-            set {
-                this.typeFieldSpecified = value;
-                this.RaisePropertyChanged("typeSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://domain.j2e/")]
-    public partial class message : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://domain.j2e/")]
-    public enum typeCanal {
-        
-        /// <remarks/>
-        PUBLIC,
-        
-        /// <remarks/>
-        PRIVE,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -395,7 +132,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -404,7 +141,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public demandeAbonnement() {
         }
         
-        public demandeAbonnement(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, string arg1) {
+        public demandeAbonnement(string arg0, string arg1) {
             this.arg0 = arg0;
             this.arg1 = arg1;
         }
@@ -472,7 +209,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -481,7 +218,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public consulterMessages() {
         }
         
-        public consulterMessages(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, string arg1) {
+        public consulterMessages(string arg0, string arg1) {
             this.arg0 = arg0;
             this.arg1 = arg1;
         }
@@ -495,12 +232,12 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.message[] @return;
+        public long[] @return;
         
         public consulterMessagesResponse() {
         }
         
-        public consulterMessagesResponse(PolyTweetWPF.UtilisateurManagerBeanService.message[] @return) {
+        public consulterMessagesResponse(long[] @return) {
             this.@return = @return;
         }
     }
@@ -513,11 +250,11 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1;
+        public string arg1;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -526,7 +263,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public supprimerModerateur() {
         }
         
-        public supprimerModerateur(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public supprimerModerateur(string arg0, string arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -577,12 +314,12 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur @return;
+        public string @return;
         
         public createResponse() {
         }
         
-        public createResponse(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur @return) {
+        public createResponse(string @return) {
             this.@return = @return;
         }
     }
@@ -595,11 +332,11 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.message arg1;
+        public long arg1;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -608,7 +345,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public ajouterMessage() {
         }
         
-        public ajouterMessage(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.message arg1, string arg2) {
+        public ajouterMessage(string arg0, long arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -641,11 +378,11 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1;
+        public string arg1;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -654,7 +391,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public accepterAbonnement() {
         }
         
-        public accepterAbonnement(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public accepterAbonnement(string arg0, string arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -687,11 +424,11 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1;
+        public string arg1;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -700,7 +437,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public ajouterModerateur() {
         }
         
-        public ajouterModerateur(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public ajouterModerateur(string arg0, string arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -733,11 +470,11 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1;
+        public string arg1;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -746,7 +483,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public supprimerProprietaire() {
         }
         
-        public supprimerProprietaire(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public supprimerProprietaire(string arg0, string arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -779,11 +516,11 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.message arg1;
+        public long arg1;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -792,7 +529,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public supprimerMessage() {
         }
         
-        public supprimerMessage(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.message arg1, string arg2) {
+        public supprimerMessage(string arg0, long arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -825,11 +562,11 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1;
+        public string arg1;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -838,7 +575,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public ajouterProprietaire() {
         }
         
-        public ajouterProprietaire(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public ajouterProprietaire(string arg0, string arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -871,11 +608,11 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0;
+        public string arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1;
+        public string arg1;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -884,7 +621,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
         public refuserAbonnement() {
         }
         
-        public refuserAbonnement(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public refuserAbonnement(string arg0, string arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -941,7 +678,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.demandeAbonnement(request);
         }
         
-        public bool demandeAbonnement(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, string arg1) {
+        public bool demandeAbonnement(string arg0, string arg1) {
             PolyTweetWPF.UtilisateurManagerBeanService.demandeAbonnement inValue = new PolyTweetWPF.UtilisateurManagerBeanService.demandeAbonnement();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -954,7 +691,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.demandeAbonnementAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.demandeAbonnementResponse> demandeAbonnementAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, string arg1) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.demandeAbonnementResponse> demandeAbonnementAsync(string arg0, string arg1) {
             PolyTweetWPF.UtilisateurManagerBeanService.demandeAbonnement inValue = new PolyTweetWPF.UtilisateurManagerBeanService.demandeAbonnement();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -989,7 +726,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.consulterMessages(request);
         }
         
-        public PolyTweetWPF.UtilisateurManagerBeanService.message[] consulterMessages(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, string arg1) {
+        public long[] consulterMessages(string arg0, string arg1) {
             PolyTweetWPF.UtilisateurManagerBeanService.consulterMessages inValue = new PolyTweetWPF.UtilisateurManagerBeanService.consulterMessages();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1002,7 +739,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.consulterMessagesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.consulterMessagesResponse> consulterMessagesAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, string arg1) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.consulterMessagesResponse> consulterMessagesAsync(string arg0, string arg1) {
             PolyTweetWPF.UtilisateurManagerBeanService.consulterMessages inValue = new PolyTweetWPF.UtilisateurManagerBeanService.consulterMessages();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1014,7 +751,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.supprimerModerateur(request);
         }
         
-        public bool supprimerModerateur(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public bool supprimerModerateur(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.supprimerModerateur inValue = new PolyTweetWPF.UtilisateurManagerBeanService.supprimerModerateur();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1028,7 +765,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.supprimerModerateurAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.supprimerModerateurResponse> supprimerModerateurAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.supprimerModerateurResponse> supprimerModerateurAsync(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.supprimerModerateur inValue = new PolyTweetWPF.UtilisateurManagerBeanService.supprimerModerateur();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1041,7 +778,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.create(request);
         }
         
-        public PolyTweetWPF.UtilisateurManagerBeanService.utilisateur create(string arg0) {
+        public string create(string arg0) {
             PolyTweetWPF.UtilisateurManagerBeanService.create inValue = new PolyTweetWPF.UtilisateurManagerBeanService.create();
             inValue.arg0 = arg0;
             PolyTweetWPF.UtilisateurManagerBeanService.createResponse retVal = ((PolyTweetWPF.UtilisateurManagerBeanService.UtilisateurManager)(this)).create(inValue);
@@ -1064,7 +801,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.ajouterMessage(request);
         }
         
-        public bool ajouterMessage(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.message arg1, string arg2) {
+        public bool ajouterMessage(string arg0, long arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.ajouterMessage inValue = new PolyTweetWPF.UtilisateurManagerBeanService.ajouterMessage();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1078,7 +815,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.ajouterMessageAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.ajouterMessageResponse> ajouterMessageAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.message arg1, string arg2) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.ajouterMessageResponse> ajouterMessageAsync(string arg0, long arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.ajouterMessage inValue = new PolyTweetWPF.UtilisateurManagerBeanService.ajouterMessage();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1091,7 +828,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.accepterAbonnement(request);
         }
         
-        public bool accepterAbonnement(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public bool accepterAbonnement(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.accepterAbonnement inValue = new PolyTweetWPF.UtilisateurManagerBeanService.accepterAbonnement();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1105,7 +842,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.accepterAbonnementAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.accepterAbonnementResponse> accepterAbonnementAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.accepterAbonnementResponse> accepterAbonnementAsync(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.accepterAbonnement inValue = new PolyTweetWPF.UtilisateurManagerBeanService.accepterAbonnement();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1118,7 +855,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.ajouterModerateur(request);
         }
         
-        public bool ajouterModerateur(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public bool ajouterModerateur(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.ajouterModerateur inValue = new PolyTweetWPF.UtilisateurManagerBeanService.ajouterModerateur();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1132,7 +869,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.ajouterModerateurAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.ajouterModerateurResponse> ajouterModerateurAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.ajouterModerateurResponse> ajouterModerateurAsync(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.ajouterModerateur inValue = new PolyTweetWPF.UtilisateurManagerBeanService.ajouterModerateur();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1145,7 +882,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.supprimerProprietaire(request);
         }
         
-        public bool supprimerProprietaire(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public bool supprimerProprietaire(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.supprimerProprietaire inValue = new PolyTweetWPF.UtilisateurManagerBeanService.supprimerProprietaire();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1159,7 +896,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.supprimerProprietaireAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.supprimerProprietaireResponse> supprimerProprietaireAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.supprimerProprietaireResponse> supprimerProprietaireAsync(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.supprimerProprietaire inValue = new PolyTweetWPF.UtilisateurManagerBeanService.supprimerProprietaire();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1172,7 +909,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.supprimerMessage(request);
         }
         
-        public bool supprimerMessage(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.message arg1, string arg2) {
+        public bool supprimerMessage(string arg0, long arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.supprimerMessage inValue = new PolyTweetWPF.UtilisateurManagerBeanService.supprimerMessage();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1186,7 +923,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.supprimerMessageAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.supprimerMessageResponse> supprimerMessageAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.message arg1, string arg2) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.supprimerMessageResponse> supprimerMessageAsync(string arg0, long arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.supprimerMessage inValue = new PolyTweetWPF.UtilisateurManagerBeanService.supprimerMessage();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1199,7 +936,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.ajouterProprietaire(request);
         }
         
-        public bool ajouterProprietaire(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public bool ajouterProprietaire(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.ajouterProprietaire inValue = new PolyTweetWPF.UtilisateurManagerBeanService.ajouterProprietaire();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1213,7 +950,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.ajouterProprietaireAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.ajouterProprietaireResponse> ajouterProprietaireAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.ajouterProprietaireResponse> ajouterProprietaireAsync(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.ajouterProprietaire inValue = new PolyTweetWPF.UtilisateurManagerBeanService.ajouterProprietaire();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1226,7 +963,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.refuserAbonnement(request);
         }
         
-        public bool refuserAbonnement(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public bool refuserAbonnement(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.refuserAbonnement inValue = new PolyTweetWPF.UtilisateurManagerBeanService.refuserAbonnement();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
@@ -1240,7 +977,7 @@ namespace PolyTweetWPF.UtilisateurManagerBeanService {
             return base.Channel.refuserAbonnementAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.refuserAbonnementResponse> refuserAbonnementAsync(PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg0, PolyTweetWPF.UtilisateurManagerBeanService.utilisateur arg1, string arg2) {
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurManagerBeanService.refuserAbonnementResponse> refuserAbonnementAsync(string arg0, string arg1, string arg2) {
             PolyTweetWPF.UtilisateurManagerBeanService.refuserAbonnement inValue = new PolyTweetWPF.UtilisateurManagerBeanService.refuserAbonnement();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;

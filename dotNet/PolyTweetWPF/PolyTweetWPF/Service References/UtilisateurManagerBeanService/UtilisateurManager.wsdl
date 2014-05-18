@@ -28,36 +28,9 @@
       <xs:element name="supprimerProprietaireResponse" type="tns:supprimerProprietaireResponse" />
       <xs:complexType name="demandeAbonnement">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
           <xs:element minOccurs="0" name="arg1" type="xs:string" />
         </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="utilisateur">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAbonnes" nillable="true" type="tns:canal" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalAttente" nillable="true" type="tns:canal" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalModerateurs" nillable="true" type="tns:canal" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="canalProprietaires" nillable="true" type="tns:canal" />
-          <xs:element minOccurs="0" name="login" type="xs:string" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="messagesEnvoyes" nillable="true" type="tns:message" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="canal">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="abonnes" nillable="true" type="tns:utilisateur" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="attente" nillable="true" type="tns:utilisateur" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="messages" nillable="true" type="tns:message" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="moderateurs" nillable="true" type="tns:utilisateur" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="proprietaires" nillable="true" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="tag" type="xs:string" />
-          <xs:element minOccurs="0" name="type" type="tns:typeCanal" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="message">
-        <xs:sequence />
-      </xs:complexType>
-      <xs:complexType name="pieceJointe">
-        <xs:sequence />
       </xs:complexType>
       <xs:complexType name="demandeAbonnementResponse">
         <xs:sequence>
@@ -76,19 +49,19 @@
       </xs:complexType>
       <xs:complexType name="consulterMessages">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
           <xs:element minOccurs="0" name="arg1" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="consulterMessagesResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:message" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:long" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="supprimerModerateur">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
           <xs:element minOccurs="0" name="arg2" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -104,13 +77,13 @@
       </xs:complexType>
       <xs:complexType name="createResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" name="return" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="return" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="ajouterMessage">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="arg1" type="tns:message" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element name="arg1" type="xs:long" />
           <xs:element minOccurs="0" name="arg2" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -121,8 +94,8 @@
       </xs:complexType>
       <xs:complexType name="accepterAbonnement">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
           <xs:element minOccurs="0" name="arg2" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -133,8 +106,8 @@
       </xs:complexType>
       <xs:complexType name="ajouterModerateur">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
           <xs:element minOccurs="0" name="arg2" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -145,8 +118,8 @@
       </xs:complexType>
       <xs:complexType name="supprimerProprietaire">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
           <xs:element minOccurs="0" name="arg2" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -157,8 +130,8 @@
       </xs:complexType>
       <xs:complexType name="supprimerMessage">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="arg1" type="tns:message" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element name="arg1" type="xs:long" />
           <xs:element minOccurs="0" name="arg2" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -169,8 +142,8 @@
       </xs:complexType>
       <xs:complexType name="ajouterProprietaire">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
           <xs:element minOccurs="0" name="arg2" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -181,8 +154,8 @@
       </xs:complexType>
       <xs:complexType name="refuserAbonnement">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:utilisateur" />
-          <xs:element minOccurs="0" name="arg1" type="tns:utilisateur" />
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
           <xs:element minOccurs="0" name="arg2" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -191,12 +164,6 @@
           <xs:element name="return" type="xs:boolean" />
         </xs:sequence>
       </xs:complexType>
-      <xs:simpleType name="typeCanal">
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="PUBLIC" />
-          <xs:enumeration value="PRIVE" />
-        </xs:restriction>
-      </xs:simpleType>
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="consulterMessages">
