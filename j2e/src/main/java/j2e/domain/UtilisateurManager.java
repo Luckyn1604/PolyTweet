@@ -4,24 +4,22 @@ import java.util.Set;
 
 import javax.jws.WebService;
 
-import j2e.entities.Message;
-import j2e.entities.Utilisateur;
 
 @WebService
 public interface UtilisateurManager {
 	
 	public boolean delete(String login);
-	public Utilisateur create(String login);
-	public boolean demandeAbonnement(Utilisateur utilisateur, String tagChannel);
-    public boolean accepterAbonnement(Utilisateur donneur,Utilisateur receveur, String tagCanal);
-    public boolean refuserAbonnement(Utilisateur donneur,Utilisateur receveur, String tagCanal);
-	public boolean ajouterModerateur(Utilisateur donneur, Utilisateur receveur,String tagCanal);
-	public boolean supprimerModerateur(Utilisateur donneur, Utilisateur receveur,String tagCanal);
-	public boolean ajouterProprietaire(Utilisateur donneur, Utilisateur receveur,String tagCanal);
-	public boolean supprimerProprietaire(Utilisateur donneur, Utilisateur receveur,String tagCanal);
-    public boolean ajouterMessage(Utilisateur utilisateur, Message message, String tagCanal);
-    public boolean supprimerMessage(Utilisateur utilisateur, Message message, String tagCanal);
-    public Set<Message> consulterMessages(Utilisateur utilisateur, String tagCanal);
+	public String create(String login);
+	public boolean demandeAbonnement(String utilisateur, String tagChannel);
+    public boolean accepterAbonnement(String donneur,String receveur, String tagCanal);
+    public boolean refuserAbonnement(String donneur,String receveur, String tagCanal);
+	public boolean ajouterModerateur(String donneur, String receveur,String tagCanal);
+	public boolean supprimerModerateur(String donneur, String receveur,String tagCanal);
+	public boolean ajouterProprietaire(String donneur, String receveur,String tagCanal);
+	public boolean supprimerProprietaire(String donneur, String receveur,String tagCanal);
+    public boolean ajouterMessage(String utilisateur, long message, String tagCanal);
+    public boolean supprimerMessage(String utilisateur, long message, String tagCanal);
+    public Set<Long> consulterMessages(String utilisateur, String tagCanal);
 
 
 

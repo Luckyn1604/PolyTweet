@@ -59,7 +59,7 @@ public class UtilisateurManagerTest {
     public void setUp() throws Exception {
     	utilisateurManager.create(userTest);
     	utilisateurManager.create(userTest2);
-		canalManager.creer("tagTest",TypeCanal.PUBLIC, userTest2);
+		canalManager.creer("tagTest","PUBLIC", userTest2);
     }
 
     @After
@@ -72,8 +72,9 @@ public class UtilisateurManagerTest {
     @Test
     public void testCreate() throws Exception {
         assertNull(utilisateurFinder.findUtilisateurByLogin("user"));
-        Utilisateur user1 = utilisateurManager.create("user");
-        Utilisateur user2 = utilisateurManager.create("user");
+        Utilisateur user1 = new Utilisateur("user");
+        Utilisateur user2 = new Utilisateur("user");
+        utilisateurManager.create("user");
         assertEquals(user1,user2);
 
         assertEquals(user1.getLogin(), "user");
@@ -96,12 +97,12 @@ public class UtilisateurManagerTest {
     	Utilisateur donneur =utilisateurFinder.findUtilisateurByLogin(userTest2);
     	Canal canal =canalFinder.findCanalByTag("tagTest");
     	
-        assertTrue(utilisateurManager.demandeAbonnement(receveur,"tagTest"));
-        assertFalse(utilisateurManager.demandeAbonnement(receveur,"tagTest"));
+        assertTrue(utilisateurManager.demandeAbonnement(userTest,"tagTest"));
+        assertFalse(utilisateurManager.demandeAbonnement(userTest,"tagTest"));
         assertTrue(utilisateurFinder.findUtilisateurByLogin(userTest).getCanalAttente().toArray()[0].equals(canal));
         assertTrue(canalFinder.findCanalByTag("tagTest").getAttente().toArray()[0].equals(receveur));
         
-        utilisateurManager.accepterAbonnement(donneur, receveur, "tagTest");
+        utilisateurManager.accepterAbonnement(userTest2, userTest, "tagTest");
         assertTrue(utilisateurFinder.findUtilisateurByLogin(userTest2).getCanalAttente().isEmpty());
         assertTrue(utilisateurFinder.findUtilisateurByLogin(userTest2).getCanalAbonnes().toArray()[0].equals(canal));
     }

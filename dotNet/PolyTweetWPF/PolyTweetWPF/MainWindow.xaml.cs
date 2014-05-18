@@ -24,14 +24,12 @@ namespace PolyTweetWPF
         private CanalManagerBeanService.CanalManagerClient canalManager;
         private CanalFinderService.CanalFinderClient canalFinder;
         private MessageManagerBeanService.MessageManagerClient messageManager;
-
-
+        
         private string login;
 
         private Dictionary<string, Canal> canaux;
         private void InitData()
-        {   
-
+        {
             Message m1 = new Message("admin", DateTime.Now, "message 1");
             Message m2 = new Message("moi", DateTime.Now.AddDays(-1), "message 2");
             Message m3 = new Message("toi", DateTime.Now.AddMonths(-1), "message 3");

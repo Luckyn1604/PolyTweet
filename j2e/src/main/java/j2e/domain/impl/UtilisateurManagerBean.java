@@ -5,6 +5,7 @@ import java.util.Set;
 
 import j2e.application.TypeCanal;
 import j2e.domain.CanalFinder;
+import j2e.domain.MessageFinder;
 import j2e.domain.UtilisateurFinder;
 import j2e.domain.UtilisateurManager;
 import j2e.entities.Canal;
@@ -25,13 +26,16 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    EntityManager entityManager;
 
 	    @EJB
-	    UtilisateurFinder finder;
+	    UtilisateurFinder utilisateurFinder;
 	    
 	    @EJB
 	    CanalFinder canalFinder;
+	    
+	    @EJB
+	    MessageFinder messageFinder;
 
 	    public boolean delete(String login) {
-	        Utilisateur utilisateur = finder.findUtilisateurByLogin(login);
+	        Utilisateur utilisateur = utilisateurFinder.findUtilisateurByLogin(login);
 	        if (utilisateur != null){
 	            entityManager.remove(utilisateur);
 	            return true;
@@ -39,17 +43,18 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	        return false;
 	    }
 
-	    public Utilisateur create(String login) {
-	        Utilisateur utilisateur = finder.findUtilisateurByLogin(login);
+	    public String create(String login) {
+	        Utilisateur utilisateur = utilisateurFinder.findUtilisateurByLogin(login);
 	        if (utilisateur == null){
 	            utilisateur = new Utilisateur(login);
 	            entityManager.persist(utilisateur);
 	        }
-	        return utilisateur;
+	        return login;
 	    }
 	    
-	    public boolean demandeAbonnement(Utilisateur utilisateur, String tagCanal) {
+	    public boolean demandeAbonnement(String loginUtilisateur, String tagCanal) {
 	            Canal canal = canalFinder.findCanalByTag(tagCanal);
+		        Utilisateur utilisateur = utilisateurFinder.findUtilisateurByLogin(loginUtilisateur);
 	            entityManager.merge(utilisateur);
 	            for(Canal c : utilisateur.getCanalAbonnes()) 
 	            	if(c.equals(canal)) 
@@ -64,8 +69,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	            return true;
 	    }
 	    
-	    public boolean accepterAbonnement(Utilisateur donneur,Utilisateur receveur, String tagCanal){
+	    public boolean accepterAbonnement(String loginDonneur,String loginReceveur, String tagCanal){
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur donneur = utilisateurFinder.findUtilisateurByLogin(loginDonneur);
+	        Utilisateur receveur = utilisateurFinder.findUtilisateurByLogin(loginReceveur);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
             boolean donneurModerateur = false;
@@ -86,8 +93,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	return false;	    	
 	    }
 	    
-	    public boolean refuserAbonnement(Utilisateur donneur,Utilisateur receveur, String tagCanal){
+	    public boolean refuserAbonnement(String loginDonneur,String loginReceveur, String tagCanal){
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur donneur = utilisateurFinder.findUtilisateurByLogin(loginDonneur);
+	        Utilisateur receveur = utilisateurFinder.findUtilisateurByLogin(loginReceveur);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
             boolean donneurModerateur = false;
@@ -108,8 +117,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	return false;	    	
 	    }
 	    
-	    public boolean ajouterModerateur(Utilisateur donneur,Utilisateur receveur, String tagCanal){	    	
+	    public boolean ajouterModerateur(String loginDonneur,String loginReceveur, String tagCanal){	    	
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur donneur = utilisateurFinder.findUtilisateurByLogin(loginDonneur);
+	        Utilisateur receveur = utilisateurFinder.findUtilisateurByLogin(loginReceveur);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
             
@@ -129,8 +140,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	return false;
 	    }
 	    
-	    public boolean supprimerModerateur(Utilisateur donneur,Utilisateur receveur, String tagCanal){
+	    public boolean supprimerModerateur(String loginDonneur,String loginReceveur, String tagCanal){
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur donneur = utilisateurFinder.findUtilisateurByLogin(loginDonneur);
+	        Utilisateur receveur = utilisateurFinder.findUtilisateurByLogin(loginReceveur);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
             boolean donneurProprietaire = false;
@@ -151,8 +164,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	return false;
 	    }
 	    
-	    public boolean ajouterProprietaire(Utilisateur donneur,Utilisateur receveur, String tagCanal){
+	    public boolean ajouterProprietaire(String loginDonneur,String loginReceveur, String tagCanal){
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur donneur = utilisateurFinder.findUtilisateurByLogin(loginDonneur);
+	        Utilisateur receveur = utilisateurFinder.findUtilisateurByLogin(loginReceveur);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
             for(Canal c : receveur.getCanalProprietaires())
@@ -169,8 +184,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	return false;
 	    }
 	    
-	    public boolean supprimerProprietaire(Utilisateur donneur,Utilisateur receveur, String tagCanal){
+	    public boolean supprimerProprietaire(String loginDonneur,String loginReceveur, String tagCanal){
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur donneur = utilisateurFinder.findUtilisateurByLogin(loginDonneur);
+	        Utilisateur receveur = utilisateurFinder.findUtilisateurByLogin(loginReceveur);
             entityManager.merge(donneur);
             entityManager.merge(receveur);
             boolean receveurProprietaire = false;
@@ -192,8 +209,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	return false;
 	    }
 
-	    public boolean ajouterMessage(Utilisateur utilisateur, Message message, String tagCanal){
+	    public boolean ajouterMessage(String loginUtilisateur, long messageID, String tagCanal){
             Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur utilisateur = utilisateurFinder.findUtilisateurByLogin(loginUtilisateur);
+	        Message message = messageFinder.findMessageById(messageID);
             entityManager.merge(utilisateur);
             for(Message m : canal.getMessages())
             	if (m.equals(message))
@@ -209,8 +228,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
             return false;
 	    }
 	    
-	    public boolean supprimerMessage(Utilisateur utilisateur, Message message, String tagCanal){
+	    public boolean supprimerMessage(String loginUtilisateur, long messageID, String tagCanal){
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur utilisateur = utilisateurFinder.findUtilisateurByLogin(loginUtilisateur);
+	        Message message = messageFinder.findMessageById(messageID);
             entityManager.merge(utilisateur);
             boolean messageExiste = false;
             boolean utilisateurSupprime = false;
@@ -233,9 +254,10 @@ public class UtilisateurManagerBean implements UtilisateurManager {
 	    	return false;
 	    }
 	    
-	    public Set<Message> consulterMessages(Utilisateur utilisateur, String tagCanal){
-	    	Set<Message> messages = new HashSet<Message>();
+	    public Set<Long> consulterMessages(String loginUtilisateur, String tagCanal){
+	    	Set<Long> messages = new HashSet<Long>();
             Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur utilisateur = utilisateurFinder.findUtilisateurByLogin(loginUtilisateur);
             entityManager.merge(utilisateur);
             boolean abonne = false;
             for(Canal c : utilisateur.getCanalAbonnes()) 
@@ -243,15 +265,17 @@ public class UtilisateurManagerBean implements UtilisateurManager {
             		abonne=true;
             if((!abonne) && canal.getType()==TypeCanal.PRIVE) return messages;
             
-            messages = utilisateur.consulterMessages(canal);
+            for (Message m : utilisateur.consulterMessages(canal))
+            	messages.add(m.getId());
 
             entityManager.merge(utilisateur);
             entityManager.merge(canal);
             return messages;
 	    }
 	    
-	    public boolean supprimerCanal(Utilisateur utilisateur, String tagCanal){
+	    public boolean supprimerCanal(String loginUtilisateur, String tagCanal){
 	    	Canal canal = canalFinder.findCanalByTag(tagCanal);
+	        Utilisateur utilisateur = utilisateurFinder.findUtilisateurByLogin(loginUtilisateur);
 	    	entityManager.merge(utilisateur);
 	    	for(Canal c : utilisateur.getCanalProprietaires())
 	    		if(c.equals(canal))

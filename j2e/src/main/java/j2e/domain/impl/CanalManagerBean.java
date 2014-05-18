@@ -22,17 +22,17 @@ public class CanalManagerBean implements CanalManager {
 	@PersistenceContext(unitName = "polytweet-pu")
 	EntityManager entityManager;
 
-	@EJB
-	CanalFinder finder;
-	
-	@EJB
-	UtilisateurFinder utilisateurFinder;
-
-	@EJB
-	MessageFinder messageFinder;
+    @EJB
+    UtilisateurFinder utilisateurFinder;
+    
+    @EJB
+    CanalFinder canalFinder;
+    
+    @EJB
+    MessageFinder messageFinder;
 
 	public boolean supprimer(String tag) {
-		Canal canal = finder.findCanalByTag(tag);
+		Canal canal = canalFinder.findCanalByTag(tag);
 		if (canal != null){
 			entityManager.remove(canal);
 			return true;
@@ -41,12 +41,12 @@ public class CanalManagerBean implements CanalManager {
 	}
 
 	
-	public Canal creer(String tag, TypeCanal type, String proprietaireId) {
-		Canal canal = finder.findCanalByTag(tag);
+	public String creer(String tag, String typeCanal, String proprietaireLogin) {
+		Canal canal = canalFinder.findCanalByTag(tag);
 		Utilisateur proprietaire = null;
 		if (canal == null) {
-			proprietaire = utilisateurFinder.findUtilisateurByLogin(proprietaireId);
-			canal = new Canal(tag,type,proprietaire);
+			proprietaire = utilisateurFinder.findUtilisateurByLogin(proprietaireLogin);
+			canal = new Canal(tag,TypeCanal.valueOf(typeCanal),proprietaire);
 			
 			proprietaire.getCanalProprietaires().add(canal);
 			proprietaire.getCanalModerateurs().add(canal);
@@ -55,22 +55,25 @@ public class CanalManagerBean implements CanalManager {
 			entityManager.persist(proprietaire);
 		}
 		
-		return canal;
+		return tag;
 	}
 
 	
-	public boolean ajouterMessage(Message message, Canal canal){
+	public boolean ajouterMessage(long messageID, String tagCanal){
+		Message message = messageFinder.findMessageById(messageID);
+		Canal canal = canalFinder.findCanalByTag(tagCanal);
 		canal.ajouterMessage(message);
 		entityManager.merge(canal);
 		return true;
 	}
 
 	
-	public boolean supprimerMessage(Message message, Canal canal){
-		Message m = messageFinder.findMessageById(message.getId());
-		if(m!=null){
+	public boolean supprimerMessage(long messageID, String tagCanal){
+		Message message = messageFinder.findMessageById(messageID);
+		Canal canal = canalFinder.findCanalByTag(tagCanal);
+		if(message !=null){
 			canal.supprimerMessage(message);
-			entityManager.remove(m);
+			entityManager.remove(message);
 		}
 		return true;
 	}
