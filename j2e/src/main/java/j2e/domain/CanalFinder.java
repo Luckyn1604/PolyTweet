@@ -8,7 +8,6 @@ import j2e.entities.Canal;
 
 @WebService
 public interface CanalFinder {
-
 	public Set<Canal> findCanalByProprietaire(String login);
 	public Canal findCanalByTag(String tag);
 	public Set<Canal> findCanalByType(String type);

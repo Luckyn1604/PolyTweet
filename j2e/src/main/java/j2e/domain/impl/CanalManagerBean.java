@@ -18,6 +18,8 @@ import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
+
 @Stateless
 @WebService
 public class CanalManagerBean implements CanalManager {
@@ -62,18 +64,18 @@ public class CanalManagerBean implements CanalManager {
 	}
 
 	
-	public boolean ajouterMessage(long messageID, String tagCanal){
+	public boolean ajouterMessage(long messageID){
 		Message message = messageFinder.findMessageById(messageID);
-		Canal canal = canalFinder.findCanalByTag(tagCanal);
+		Canal canal = message.getCanal();
 		canal.ajouterMessage(message);
 		entityManager.merge(canal);
 		return true;
 	}
 
 	
-	public boolean supprimerMessage(long messageID, String tagCanal){
+	public boolean supprimerMessage(long messageID){
 		Message message = messageFinder.findMessageById(messageID);
-		Canal canal = canalFinder.findCanalByTag(tagCanal);
+		Canal canal = message.getCanal();
 		if(message !=null){
 			canal.supprimerMessage(message);
 			entityManager.remove(message);
@@ -94,5 +96,8 @@ public class CanalManagerBean implements CanalManager {
 		for (Canal c : canalFinder.findCanalByType(typeCanal)) set.add(c.getTag());
 		return set;
 	}
-
+	
+	public boolean canalExiste(String tagCanal) {
+		return canalFinder.findCanalByTag(tagCanal)!=null;
+	}
 }

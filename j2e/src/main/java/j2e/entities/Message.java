@@ -56,6 +56,7 @@ public class Message implements Serializable {
 		this.piecesJointes = new HashSet<PieceJointe>();
 		this.canal = canal;
 		this.auteur = auteur;
+		this.date = new Date();
 	}
 
 	public long getId() {

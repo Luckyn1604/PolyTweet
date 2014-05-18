@@ -1,5 +1,10 @@
 package j2e.domain.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 import j2e.domain.CanalFinder;
 import j2e.domain.MessageFinder;
 import j2e.domain.MessageManager;
@@ -64,5 +69,32 @@ public class MessageManagerBean implements MessageManager{
 	    public void cleanup() {
 	        System.out.println("Destroying MessageManager");
 	    }
+
+		public Set<Long> afficherIdByTag(String tagCanal) {
+			Set<Long> set = new HashSet<Long>();
+			for (Message m : messageFinder.findMessageByTag(tagCanal)) set.add(m.getId());
+			return set;
+		}
+
+		public String afficherTexteByID(long id) {
+			return messageFinder.findMessageById(id).getTexte();
+		}
+
+		public String afficherAuteurByID(long id) {
+			return messageFinder.findMessageById(id).getAuteur().getLogin();
+		}
+
+		public String afficherDateByID(long id) {
+			try {
+				Message m = messageFinder.findMessageById(id);
+				if (m==null) return "m null";
+				Date d = m.getDate();
+				if (d==null) return "d null";
+			SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:SS");
+			return df.format(messageFinder.findMessageById(id).getDate());
+			} catch (Exception e) { 
+				return e.toString();
+			}
+		}
 
 }
