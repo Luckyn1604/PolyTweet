@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="115j2NZRoGTxKJhRjTm42NFbHds=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="htOFo53Jib0bbuF6xIqm0NcXdZc=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="CanalFinderBeanServiceSoapBinding1">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="CanalFinderBeanPort1" contract="CanalFinderService.CanalFinder" bindingType="basicHttpBinding" address="http://localhost:8080//webservices/CanalFinderBean" bindingConfiguration="CanalFinderBeanServiceSoapBinding1">
+    <endpoint name="CanalFinderBeanPort1" contract="CanalFinderBeanService.CanalFinder" bindingType="basicHttpBinding" address="http://localhost:8080//webservices/CanalFinderBean" bindingConfiguration="CanalFinderBeanServiceSoapBinding1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8080//webservices/CanalFinderBean</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>CanalFinderBeanServiceSoapBinding1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>CanalFinderService.CanalFinder</serializedValue>
+          <serializedValue>CanalFinderBeanService.CanalFinder</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

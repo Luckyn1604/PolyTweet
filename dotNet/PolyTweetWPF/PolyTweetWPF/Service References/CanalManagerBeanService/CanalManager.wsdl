@@ -2,6 +2,10 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://domain.j2e/" name="CanalManager" targetNamespace="http://domain.j2e/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema xmlns:tns="http://domain.j2e/" elementFormDefault="unqualified" targetNamespace="http://domain.j2e/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="afficherTagByAbonne" type="tns:afficherTagByAbonne" />
+      <xs:element name="afficherTagByAbonneResponse" type="tns:afficherTagByAbonneResponse" />
+      <xs:element name="afficherTagByType" type="tns:afficherTagByType" />
+      <xs:element name="afficherTagByTypeResponse" type="tns:afficherTagByTypeResponse" />
       <xs:element name="ajouterMessage" type="tns:ajouterMessage" />
       <xs:element name="ajouterMessageResponse" type="tns:ajouterMessageResponse" />
       <xs:element name="creer" type="tns:creer" />
@@ -10,6 +14,16 @@
       <xs:element name="supprimerMessage" type="tns:supprimerMessage" />
       <xs:element name="supprimerMessageResponse" type="tns:supprimerMessageResponse" />
       <xs:element name="supprimerResponse" type="tns:supprimerResponse" />
+      <xs:complexType name="afficherTagByAbonne">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherTagByAbonneResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
       <xs:complexType name="supprimer">
         <xs:sequence>
           <xs:element minOccurs="0" name="arg0" type="xs:string" />
@@ -31,6 +45,27 @@
           <xs:element name="return" type="xs:boolean" />
         </xs:sequence>
       </xs:complexType>
+      <xs:complexType name="ajouterMessage">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:long" />
+          <xs:element minOccurs="0" name="arg1" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ajouterMessageResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherTagByType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherTagByTypeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
       <xs:complexType name="creer">
         <xs:sequence>
           <xs:element minOccurs="0" name="arg0" type="xs:string" />
@@ -43,27 +78,28 @@
           <xs:element minOccurs="0" name="return" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="ajouterMessage">
-        <xs:sequence>
-          <xs:element name="arg0" type="xs:long" />
-          <xs:element minOccurs="0" name="arg1" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="ajouterMessageResponse">
-        <xs:sequence>
-          <xs:element name="return" type="xs:boolean" />
-        </xs:sequence>
-      </xs:complexType>
     </xs:schema>
   </wsdl:types>
+  <wsdl:message name="afficherTagByTypeResponse">
+    <wsdl:part name="parameters" element="ns1:afficherTagByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="afficherTagByType">
+    <wsdl:part name="parameters" element="ns1:afficherTagByType" />
+  </wsdl:message>
   <wsdl:message name="supprimerResponse">
     <wsdl:part name="parameters" element="ns1:supprimerResponse" />
+  </wsdl:message>
+  <wsdl:message name="afficherTagByAbonne">
+    <wsdl:part name="parameters" element="ns1:afficherTagByAbonne" />
   </wsdl:message>
   <wsdl:message name="ajouterMessage">
     <wsdl:part name="parameters" element="ns1:ajouterMessage" />
   </wsdl:message>
   <wsdl:message name="supprimerMessageResponse">
     <wsdl:part name="parameters" element="ns1:supprimerMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="afficherTagByAbonneResponse">
+    <wsdl:part name="parameters" element="ns1:afficherTagByAbonneResponse" />
   </wsdl:message>
   <wsdl:message name="ajouterMessageResponse">
     <wsdl:part name="parameters" element="ns1:ajouterMessageResponse" />
@@ -81,6 +117,10 @@
     <wsdl:part name="parameters" element="ns1:supprimerMessage" />
   </wsdl:message>
   <wsdl:portType name="CanalManager">
+    <wsdl:operation name="afficherTagByAbonne">
+      <wsdl:input name="afficherTagByAbonne" message="ns1:afficherTagByAbonne" />
+      <wsdl:output name="afficherTagByAbonneResponse" message="ns1:afficherTagByAbonneResponse" />
+    </wsdl:operation>
     <wsdl:operation name="supprimer">
       <wsdl:input name="supprimer" message="ns1:supprimer" />
       <wsdl:output name="supprimerResponse" message="ns1:supprimerResponse" />
@@ -89,13 +129,17 @@
       <wsdl:input name="supprimerMessage" message="ns1:supprimerMessage" />
       <wsdl:output name="supprimerMessageResponse" message="ns1:supprimerMessageResponse" />
     </wsdl:operation>
-    <wsdl:operation name="creer">
-      <wsdl:input name="creer" message="ns1:creer" />
-      <wsdl:output name="creerResponse" message="ns1:creerResponse" />
-    </wsdl:operation>
     <wsdl:operation name="ajouterMessage">
       <wsdl:input name="ajouterMessage" message="ns1:ajouterMessage" />
       <wsdl:output name="ajouterMessageResponse" message="ns1:ajouterMessageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="afficherTagByType">
+      <wsdl:input name="afficherTagByType" message="ns1:afficherTagByType" />
+      <wsdl:output name="afficherTagByTypeResponse" message="ns1:afficherTagByTypeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="creer">
+      <wsdl:input name="creer" message="ns1:creer" />
+      <wsdl:output name="creerResponse" message="ns1:creerResponse" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

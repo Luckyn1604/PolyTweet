@@ -8,21 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PolyTweetWPF.UtilisateurFinderService {
+namespace PolyTweetWPF.UtilisateurFinderBeanService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://domain.j2e/", ConfigurationName="UtilisateurFinderService.UtilisateurFinder")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://domain.j2e/", ConfigurationName="UtilisateurFinderBeanService.UtilisateurFinder")]
     public interface UtilisateurFinder {
         
         // CODEGEN : Le paramètre 'return' nécessite des informations de schéma supplémentaires qui ne peuvent pas être capturées en utilisant le mode du paramètre. L'attribut spécifique est 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLoginResponse findUtilisateurByLogin(PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLogin request);
+        PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLoginResponse findUtilisateurByLogin(PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLogin request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLoginResponse> findUtilisateurByLoginAsync(PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLogin request);
+        System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLoginResponse> findUtilisateurByLoginAsync(PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLogin request);
     }
     
     /// <remarks/>
@@ -314,23 +314,23 @@ namespace PolyTweetWPF.UtilisateurFinderService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public PolyTweetWPF.UtilisateurFinderService.utilisateur @return;
+        public PolyTweetWPF.UtilisateurFinderBeanService.utilisateur @return;
         
         public findUtilisateurByLoginResponse() {
         }
         
-        public findUtilisateurByLoginResponse(PolyTweetWPF.UtilisateurFinderService.utilisateur @return) {
+        public findUtilisateurByLoginResponse(PolyTweetWPF.UtilisateurFinderBeanService.utilisateur @return) {
             this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface UtilisateurFinderChannel : PolyTweetWPF.UtilisateurFinderService.UtilisateurFinder, System.ServiceModel.IClientChannel {
+    public interface UtilisateurFinderChannel : PolyTweetWPF.UtilisateurFinderBeanService.UtilisateurFinder, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UtilisateurFinderClient : System.ServiceModel.ClientBase<PolyTweetWPF.UtilisateurFinderService.UtilisateurFinder>, PolyTweetWPF.UtilisateurFinderService.UtilisateurFinder {
+    public partial class UtilisateurFinderClient : System.ServiceModel.ClientBase<PolyTweetWPF.UtilisateurFinderBeanService.UtilisateurFinder>, PolyTweetWPF.UtilisateurFinderBeanService.UtilisateurFinder {
         
         public UtilisateurFinderClient() {
         }
@@ -352,26 +352,26 @@ namespace PolyTweetWPF.UtilisateurFinderService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLoginResponse PolyTweetWPF.UtilisateurFinderService.UtilisateurFinder.findUtilisateurByLogin(PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLogin request) {
+        PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLoginResponse PolyTweetWPF.UtilisateurFinderBeanService.UtilisateurFinder.findUtilisateurByLogin(PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLogin request) {
             return base.Channel.findUtilisateurByLogin(request);
         }
         
-        public PolyTweetWPF.UtilisateurFinderService.utilisateur findUtilisateurByLogin(string arg0) {
-            PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLogin inValue = new PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLogin();
+        public PolyTweetWPF.UtilisateurFinderBeanService.utilisateur findUtilisateurByLogin(string arg0) {
+            PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLogin inValue = new PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLogin();
             inValue.arg0 = arg0;
-            PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLoginResponse retVal = ((PolyTweetWPF.UtilisateurFinderService.UtilisateurFinder)(this)).findUtilisateurByLogin(inValue);
+            PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLoginResponse retVal = ((PolyTweetWPF.UtilisateurFinderBeanService.UtilisateurFinder)(this)).findUtilisateurByLogin(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLoginResponse> PolyTweetWPF.UtilisateurFinderService.UtilisateurFinder.findUtilisateurByLoginAsync(PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLogin request) {
+        System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLoginResponse> PolyTweetWPF.UtilisateurFinderBeanService.UtilisateurFinder.findUtilisateurByLoginAsync(PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLogin request) {
             return base.Channel.findUtilisateurByLoginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLoginResponse> findUtilisateurByLoginAsync(string arg0) {
-            PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLogin inValue = new PolyTweetWPF.UtilisateurFinderService.findUtilisateurByLogin();
+        public System.Threading.Tasks.Task<PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLoginResponse> findUtilisateurByLoginAsync(string arg0) {
+            PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLogin inValue = new PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLogin();
             inValue.arg0 = arg0;
-            return ((PolyTweetWPF.UtilisateurFinderService.UtilisateurFinder)(this)).findUtilisateurByLoginAsync(inValue);
+            return ((PolyTweetWPF.UtilisateurFinderBeanService.UtilisateurFinder)(this)).findUtilisateurByLoginAsync(inValue);
         }
     }
 }

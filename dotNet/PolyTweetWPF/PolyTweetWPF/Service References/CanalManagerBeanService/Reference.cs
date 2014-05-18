@@ -15,65 +15,75 @@ namespace PolyTweetWPF.CanalManagerBeanService {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://domain.j2e/", ConfigurationName="CanalManagerBeanService.CanalManager")]
     public interface CanalManager {
         
-        // CODEGEN : La génération du contrat de message depuis le nom d'élément arg0 de l'espace de noms  n'est pas marqué nillable
+        // CODEGEN : Le paramètre 'return' nécessite des informations de schéma supplémentaires qui ne peuvent pas être capturées en utilisant le mode du paramètre. L'attribut spécifique est 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonneResponse afficherTagByAbonne(PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonne request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonneResponse> afficherTagByAbonneAsync(PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonne request);
+        
+        // CODEGEN : Le paramètre 'return' nécessite des informations de schéma supplémentaires qui ne peuvent pas être capturées en utilisant le mode du paramètre. L'attribut spécifique est 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         PolyTweetWPF.CanalManagerBeanService.supprimerResponse supprimer(PolyTweetWPF.CanalManagerBeanService.supprimer request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.supprimerResponse> supprimerAsync(PolyTweetWPF.CanalManagerBeanService.supprimer request);
         
-        // CODEGEN : La génération du contrat de message depuis le nom d'élément arg1 de l'espace de noms  n'est pas marqué nillable
+        // CODEGEN : Le paramètre 'return' nécessite des informations de schéma supplémentaires qui ne peuvent pas être capturées en utilisant le mode du paramètre. L'attribut spécifique est 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         PolyTweetWPF.CanalManagerBeanService.supprimerMessageResponse supprimerMessage(PolyTweetWPF.CanalManagerBeanService.supprimerMessage request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.supprimerMessageResponse> supprimerMessageAsync(PolyTweetWPF.CanalManagerBeanService.supprimerMessage request);
         
-        // CODEGEN : La génération du contrat de message depuis le nom d'élément arg0 de l'espace de noms  n'est pas marqué nillable
+        // CODEGEN : Le paramètre 'return' nécessite des informations de schéma supplémentaires qui ne peuvent pas être capturées en utilisant le mode du paramètre. L'attribut spécifique est 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        PolyTweetWPF.CanalManagerBeanService.creerResponse creer(PolyTweetWPF.CanalManagerBeanService.creer request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.creerResponse> creerAsync(PolyTweetWPF.CanalManagerBeanService.creer request);
-        
-        // CODEGEN : La génération du contrat de message depuis le nom d'élément arg1 de l'espace de noms  n'est pas marqué nillable
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         PolyTweetWPF.CanalManagerBeanService.ajouterMessageResponse ajouterMessage(PolyTweetWPF.CanalManagerBeanService.ajouterMessage request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.ajouterMessageResponse> ajouterMessageAsync(PolyTweetWPF.CanalManagerBeanService.ajouterMessage request);
+        
+        // CODEGEN : Le paramètre 'return' nécessite des informations de schéma supplémentaires qui ne peuvent pas être capturées en utilisant le mode du paramètre. L'attribut spécifique est 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        PolyTweetWPF.CanalManagerBeanService.afficherTagByTypeResponse afficherTagByType(PolyTweetWPF.CanalManagerBeanService.afficherTagByType request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.afficherTagByTypeResponse> afficherTagByTypeAsync(PolyTweetWPF.CanalManagerBeanService.afficherTagByType request);
+        
+        // CODEGEN : Le paramètre 'return' nécessite des informations de schéma supplémentaires qui ne peuvent pas être capturées en utilisant le mode du paramètre. L'attribut spécifique est 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        PolyTweetWPF.CanalManagerBeanService.creerResponse creer(PolyTweetWPF.CanalManagerBeanService.creer request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.creerResponse> creerAsync(PolyTweetWPF.CanalManagerBeanService.creer request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class supprimer {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="afficherTagByAbonne", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class afficherTagByAbonne {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="supprimer", Namespace="http://domain.j2e/", Order=0)]
-        public PolyTweetWPF.CanalManagerBeanService.supprimerBody Body;
-        
-        public supprimer() {
-        }
-        
-        public supprimer(PolyTweetWPF.CanalManagerBeanService.supprimerBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class supprimerBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg0;
         
-        public supprimerBody() {
+        public afficherTagByAbonne() {
         }
         
-        public supprimerBody(string arg0) {
+        public afficherTagByAbonne(string arg0) {
             this.arg0 = arg0;
         }
     }
@@ -81,33 +91,17 @@ namespace PolyTweetWPF.CanalManagerBeanService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class supprimerResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="afficherTagByAbonneResponse", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class afficherTagByAbonneResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="supprimerResponse", Namespace="http://domain.j2e/", Order=0)]
-        public PolyTweetWPF.CanalManagerBeanService.supprimerResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string[] @return;
         
-        public supprimerResponse() {
+        public afficherTagByAbonneResponse() {
         }
         
-        public supprimerResponse(PolyTweetWPF.CanalManagerBeanService.supprimerResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class supprimerResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool @return;
-        
-        public supprimerResponseBody() {
-        }
-        
-        public supprimerResponseBody(bool @return) {
+        public afficherTagByAbonneResponse(string[] @return) {
             this.@return = @return;
         }
     }
@@ -115,36 +109,57 @@ namespace PolyTweetWPF.CanalManagerBeanService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class supprimerMessage {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="supprimer", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class supprimer {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="supprimerMessage", Namespace="http://domain.j2e/", Order=0)]
-        public PolyTweetWPF.CanalManagerBeanService.supprimerMessageBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
         
-        public supprimerMessage() {
+        public supprimer() {
         }
         
-        public supprimerMessage(PolyTweetWPF.CanalManagerBeanService.supprimerMessageBody Body) {
-            this.Body = Body;
+        public supprimer(string arg0) {
+            this.arg0 = arg0;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class supprimerMessageBody {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="supprimerResponse", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class supprimerResponse {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public long arg0;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string arg1;
-        
-        public supprimerMessageBody() {
+        public supprimerResponse() {
         }
         
-        public supprimerMessageBody(long arg0, string arg1) {
+        public supprimerResponse(bool @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="supprimerMessage", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class supprimerMessage {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public long arg0;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg1;
+        
+        public supprimerMessage() {
+        }
+        
+        public supprimerMessage(long arg0, string arg1) {
             this.arg0 = arg0;
             this.arg1 = arg1;
         }
@@ -153,33 +168,17 @@ namespace PolyTweetWPF.CanalManagerBeanService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="supprimerMessageResponse", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
     public partial class supprimerMessageResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="supprimerMessageResponse", Namespace="http://domain.j2e/", Order=0)]
-        public PolyTweetWPF.CanalManagerBeanService.supprimerMessageResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
         
         public supprimerMessageResponse() {
         }
         
-        public supprimerMessageResponse(PolyTweetWPF.CanalManagerBeanService.supprimerMessageResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class supprimerMessageResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool @return;
-        
-        public supprimerMessageResponseBody() {
-        }
-        
-        public supprimerMessageResponseBody(bool @return) {
+        public supprimerMessageResponse(bool @return) {
             this.@return = @return;
         }
     }
@@ -187,39 +186,102 @@ namespace PolyTweetWPF.CanalManagerBeanService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class creer {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ajouterMessage", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class ajouterMessage {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="creer", Namespace="http://domain.j2e/", Order=0)]
-        public PolyTweetWPF.CanalManagerBeanService.creerBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public long arg0;
         
-        public creer() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg1;
+        
+        public ajouterMessage() {
         }
         
-        public creer(PolyTweetWPF.CanalManagerBeanService.creerBody Body) {
-            this.Body = Body;
+        public ajouterMessage(long arg0, string arg1) {
+            this.arg0 = arg0;
+            this.arg1 = arg1;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class creerBody {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ajouterMessageResponse", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class ajouterMessageResponse {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string arg0;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string arg1;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string arg2;
-        
-        public creerBody() {
+        public ajouterMessageResponse() {
         }
         
-        public creerBody(string arg0, string arg1, string arg2) {
+        public ajouterMessageResponse(bool @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="afficherTagByType", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class afficherTagByType {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
+        
+        public afficherTagByType() {
+        }
+        
+        public afficherTagByType(string arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="afficherTagByTypeResponse", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class afficherTagByTypeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string[] @return;
+        
+        public afficherTagByTypeResponse() {
+        }
+        
+        public afficherTagByTypeResponse(string[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="creer", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
+    public partial class creer {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg1;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg2;
+        
+        public creer() {
+        }
+        
+        public creer(string arg0, string arg1, string arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
             this.arg2 = arg2;
@@ -229,105 +291,17 @@ namespace PolyTweetWPF.CanalManagerBeanService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="creerResponse", WrapperNamespace="http://domain.j2e/", IsWrapped=true)]
     public partial class creerResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="creerResponse", Namespace="http://domain.j2e/", Order=0)]
-        public PolyTweetWPF.CanalManagerBeanService.creerResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://domain.j2e/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string @return;
         
         public creerResponse() {
         }
         
-        public creerResponse(PolyTweetWPF.CanalManagerBeanService.creerResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class creerResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public creerResponseBody() {
-        }
-        
-        public creerResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ajouterMessage {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ajouterMessage", Namespace="http://domain.j2e/", Order=0)]
-        public PolyTweetWPF.CanalManagerBeanService.ajouterMessageBody Body;
-        
-        public ajouterMessage() {
-        }
-        
-        public ajouterMessage(PolyTweetWPF.CanalManagerBeanService.ajouterMessageBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class ajouterMessageBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public long arg0;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string arg1;
-        
-        public ajouterMessageBody() {
-        }
-        
-        public ajouterMessageBody(long arg0, string arg1) {
-            this.arg0 = arg0;
-            this.arg1 = arg1;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ajouterMessageResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ajouterMessageResponse", Namespace="http://domain.j2e/", Order=0)]
-        public PolyTweetWPF.CanalManagerBeanService.ajouterMessageResponseBody Body;
-        
-        public ajouterMessageResponse() {
-        }
-        
-        public ajouterMessageResponse(PolyTweetWPF.CanalManagerBeanService.ajouterMessageResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class ajouterMessageResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool @return;
-        
-        public ajouterMessageResponseBody() {
-        }
-        
-        public ajouterMessageResponseBody(bool @return) {
+        public creerResponse(string @return) {
             this.@return = @return;
         }
     }
@@ -360,16 +334,38 @@ namespace PolyTweetWPF.CanalManagerBeanService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonneResponse PolyTweetWPF.CanalManagerBeanService.CanalManager.afficherTagByAbonne(PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonne request) {
+            return base.Channel.afficherTagByAbonne(request);
+        }
+        
+        public string[] afficherTagByAbonne(string arg0) {
+            PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonne inValue = new PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonne();
+            inValue.arg0 = arg0;
+            PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonneResponse retVal = ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).afficherTagByAbonne(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonneResponse> PolyTweetWPF.CanalManagerBeanService.CanalManager.afficherTagByAbonneAsync(PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonne request) {
+            return base.Channel.afficherTagByAbonneAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonneResponse> afficherTagByAbonneAsync(string arg0) {
+            PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonne inValue = new PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonne();
+            inValue.arg0 = arg0;
+            return ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).afficherTagByAbonneAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         PolyTweetWPF.CanalManagerBeanService.supprimerResponse PolyTweetWPF.CanalManagerBeanService.CanalManager.supprimer(PolyTweetWPF.CanalManagerBeanService.supprimer request) {
             return base.Channel.supprimer(request);
         }
         
         public bool supprimer(string arg0) {
             PolyTweetWPF.CanalManagerBeanService.supprimer inValue = new PolyTweetWPF.CanalManagerBeanService.supprimer();
-            inValue.Body = new PolyTweetWPF.CanalManagerBeanService.supprimerBody();
-            inValue.Body.arg0 = arg0;
+            inValue.arg0 = arg0;
             PolyTweetWPF.CanalManagerBeanService.supprimerResponse retVal = ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).supprimer(inValue);
-            return retVal.Body.@return;
+            return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -379,8 +375,7 @@ namespace PolyTweetWPF.CanalManagerBeanService {
         
         public System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.supprimerResponse> supprimerAsync(string arg0) {
             PolyTweetWPF.CanalManagerBeanService.supprimer inValue = new PolyTweetWPF.CanalManagerBeanService.supprimer();
-            inValue.Body = new PolyTweetWPF.CanalManagerBeanService.supprimerBody();
-            inValue.Body.arg0 = arg0;
+            inValue.arg0 = arg0;
             return ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).supprimerAsync(inValue);
         }
         
@@ -391,11 +386,10 @@ namespace PolyTweetWPF.CanalManagerBeanService {
         
         public bool supprimerMessage(long arg0, string arg1) {
             PolyTweetWPF.CanalManagerBeanService.supprimerMessage inValue = new PolyTweetWPF.CanalManagerBeanService.supprimerMessage();
-            inValue.Body = new PolyTweetWPF.CanalManagerBeanService.supprimerMessageBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
             PolyTweetWPF.CanalManagerBeanService.supprimerMessageResponse retVal = ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).supprimerMessage(inValue);
-            return retVal.Body.@return;
+            return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -405,39 +399,9 @@ namespace PolyTweetWPF.CanalManagerBeanService {
         
         public System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.supprimerMessageResponse> supprimerMessageAsync(long arg0, string arg1) {
             PolyTweetWPF.CanalManagerBeanService.supprimerMessage inValue = new PolyTweetWPF.CanalManagerBeanService.supprimerMessage();
-            inValue.Body = new PolyTweetWPF.CanalManagerBeanService.supprimerMessageBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
             return ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).supprimerMessageAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        PolyTweetWPF.CanalManagerBeanService.creerResponse PolyTweetWPF.CanalManagerBeanService.CanalManager.creer(PolyTweetWPF.CanalManagerBeanService.creer request) {
-            return base.Channel.creer(request);
-        }
-        
-        public string creer(string arg0, string arg1, string arg2) {
-            PolyTweetWPF.CanalManagerBeanService.creer inValue = new PolyTweetWPF.CanalManagerBeanService.creer();
-            inValue.Body = new PolyTweetWPF.CanalManagerBeanService.creerBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
-            inValue.Body.arg2 = arg2;
-            PolyTweetWPF.CanalManagerBeanService.creerResponse retVal = ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).creer(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.creerResponse> PolyTweetWPF.CanalManagerBeanService.CanalManager.creerAsync(PolyTweetWPF.CanalManagerBeanService.creer request) {
-            return base.Channel.creerAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.creerResponse> creerAsync(string arg0, string arg1, string arg2) {
-            PolyTweetWPF.CanalManagerBeanService.creer inValue = new PolyTweetWPF.CanalManagerBeanService.creer();
-            inValue.Body = new PolyTweetWPF.CanalManagerBeanService.creerBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
-            inValue.Body.arg2 = arg2;
-            return ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).creerAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -447,11 +411,10 @@ namespace PolyTweetWPF.CanalManagerBeanService {
         
         public bool ajouterMessage(long arg0, string arg1) {
             PolyTweetWPF.CanalManagerBeanService.ajouterMessage inValue = new PolyTweetWPF.CanalManagerBeanService.ajouterMessage();
-            inValue.Body = new PolyTweetWPF.CanalManagerBeanService.ajouterMessageBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
             PolyTweetWPF.CanalManagerBeanService.ajouterMessageResponse retVal = ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).ajouterMessage(inValue);
-            return retVal.Body.@return;
+            return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -461,10 +424,59 @@ namespace PolyTweetWPF.CanalManagerBeanService {
         
         public System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.ajouterMessageResponse> ajouterMessageAsync(long arg0, string arg1) {
             PolyTweetWPF.CanalManagerBeanService.ajouterMessage inValue = new PolyTweetWPF.CanalManagerBeanService.ajouterMessage();
-            inValue.Body = new PolyTweetWPF.CanalManagerBeanService.ajouterMessageBody();
-            inValue.Body.arg0 = arg0;
-            inValue.Body.arg1 = arg1;
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
             return ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).ajouterMessageAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PolyTweetWPF.CanalManagerBeanService.afficherTagByTypeResponse PolyTweetWPF.CanalManagerBeanService.CanalManager.afficherTagByType(PolyTweetWPF.CanalManagerBeanService.afficherTagByType request) {
+            return base.Channel.afficherTagByType(request);
+        }
+        
+        public string[] afficherTagByType(string arg0) {
+            PolyTweetWPF.CanalManagerBeanService.afficherTagByType inValue = new PolyTweetWPF.CanalManagerBeanService.afficherTagByType();
+            inValue.arg0 = arg0;
+            PolyTweetWPF.CanalManagerBeanService.afficherTagByTypeResponse retVal = ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).afficherTagByType(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.afficherTagByTypeResponse> PolyTweetWPF.CanalManagerBeanService.CanalManager.afficherTagByTypeAsync(PolyTweetWPF.CanalManagerBeanService.afficherTagByType request) {
+            return base.Channel.afficherTagByTypeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.afficherTagByTypeResponse> afficherTagByTypeAsync(string arg0) {
+            PolyTweetWPF.CanalManagerBeanService.afficherTagByType inValue = new PolyTweetWPF.CanalManagerBeanService.afficherTagByType();
+            inValue.arg0 = arg0;
+            return ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).afficherTagByTypeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        PolyTweetWPF.CanalManagerBeanService.creerResponse PolyTweetWPF.CanalManagerBeanService.CanalManager.creer(PolyTweetWPF.CanalManagerBeanService.creer request) {
+            return base.Channel.creer(request);
+        }
+        
+        public string creer(string arg0, string arg1, string arg2) {
+            PolyTweetWPF.CanalManagerBeanService.creer inValue = new PolyTweetWPF.CanalManagerBeanService.creer();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            PolyTweetWPF.CanalManagerBeanService.creerResponse retVal = ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).creer(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.creerResponse> PolyTweetWPF.CanalManagerBeanService.CanalManager.creerAsync(PolyTweetWPF.CanalManagerBeanService.creer request) {
+            return base.Channel.creerAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<PolyTweetWPF.CanalManagerBeanService.creerResponse> creerAsync(string arg0, string arg1, string arg2) {
+            PolyTweetWPF.CanalManagerBeanService.creer inValue = new PolyTweetWPF.CanalManagerBeanService.creer();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            return ((PolyTweetWPF.CanalManagerBeanService.CanalManager)(this)).creerAsync(inValue);
         }
     }
 }
