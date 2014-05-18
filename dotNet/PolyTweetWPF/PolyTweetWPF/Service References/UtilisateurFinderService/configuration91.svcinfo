@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="nnTY4zy80Z48O83kuICE2LeIfbI=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="px15dbsNtcYMZkb0WRtaOaga6Jc=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="UtilisateurFinderBeanServiceSoapBinding">
+    <bindingConfiguration bindingType="basicHttpBinding" name="UtilisateurFinderBeanServiceSoapBinding1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>UtilisateurFinderBeanServiceSoapBinding</serializedValue>
+          <serializedValue>UtilisateurFinderBeanServiceSoapBinding1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="UtilisateurFinderBeanPort" contract="UtilisateurFinderService.UtilisateurFinder" bindingType="basicHttpBinding" address="http://localhost:8080//webservices/UtilisateurFinderBean" bindingConfiguration="UtilisateurFinderBeanServiceSoapBinding">
+    <endpoint name="UtilisateurFinderBeanPort1" contract="UtilisateurFinderService.UtilisateurFinder" bindingType="basicHttpBinding" address="http://localhost:8080//webservices/UtilisateurFinderBean" bindingConfiguration="UtilisateurFinderBeanServiceSoapBinding1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8080//webservices/UtilisateurFinderBean</serializedValue>
@@ -124,7 +124,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>UtilisateurFinderBeanServiceSoapBinding</serializedValue>
+          <serializedValue>UtilisateurFinderBeanServiceSoapBinding1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>UtilisateurFinderService.UtilisateurFinder</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>UtilisateurFinderBeanPort</serializedValue>
+          <serializedValue>UtilisateurFinderBeanPort1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
