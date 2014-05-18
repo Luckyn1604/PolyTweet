@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c22cbcdb-03bf-4669-a0c0-dcb062d60e48" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="332f543e-cbe2-4a00-ae83-c5e94376f276" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080//webservices/UtilisateurFinderBean?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UtilisateurFinderBeanService.wsdl" MetadataType="Wsdl" ID="c4659b55-f713-456e-84b4-591cc01c7161" SourceId="1" SourceUrl="http://localhost:8080//webservices/UtilisateurFinderBean?wsdl" />
-    <MetadataFile FileName="UtilisateurFinder.wsdl" MetadataType="Wsdl" ID="9c483de2-09c3-4dc5-b496-d6c2a7b340a2" SourceId="1" SourceUrl="http://localhost:8080//webservices/UtilisateurFinderBean?wsdl=UtilisateurFinder.wsdl" />
+    <MetadataFile FileName="UtilisateurFinderBeanService.wsdl" MetadataType="Wsdl" ID="f23511d7-2eef-4a1a-a7d6-8e434af25b49" SourceId="1" SourceUrl="http://localhost:8080//webservices/UtilisateurFinderBean?wsdl" />
+    <MetadataFile FileName="UtilisateurFinder.wsdl" MetadataType="Wsdl" ID="39c96c4e-4ee6-424b-a9f5-a4fba24545d6" SourceId="1" SourceUrl="http://localhost:8080//webservices/UtilisateurFinderBean?wsdl=UtilisateurFinder.wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

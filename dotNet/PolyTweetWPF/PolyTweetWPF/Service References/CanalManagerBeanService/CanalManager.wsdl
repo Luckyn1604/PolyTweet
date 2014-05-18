@@ -8,6 +8,8 @@
       <xs:element name="afficherTagByTypeResponse" type="tns:afficherTagByTypeResponse" />
       <xs:element name="ajouterMessage" type="tns:ajouterMessage" />
       <xs:element name="ajouterMessageResponse" type="tns:ajouterMessageResponse" />
+      <xs:element name="canalExiste" type="tns:canalExiste" />
+      <xs:element name="canalExisteResponse" type="tns:canalExisteResponse" />
       <xs:element name="creer" type="tns:creer" />
       <xs:element name="creerResponse" type="tns:creerResponse" />
       <xs:element name="supprimer" type="tns:supprimer" />
@@ -37,7 +39,6 @@
       <xs:complexType name="supprimerMessage">
         <xs:sequence>
           <xs:element name="arg0" type="xs:long" />
-          <xs:element minOccurs="0" name="arg1" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="supprimerMessageResponse">
@@ -45,10 +46,19 @@
           <xs:element name="return" type="xs:boolean" />
         </xs:sequence>
       </xs:complexType>
+      <xs:complexType name="canalExiste">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="canalExisteResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
       <xs:complexType name="ajouterMessage">
         <xs:sequence>
           <xs:element name="arg0" type="xs:long" />
-          <xs:element minOccurs="0" name="arg1" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="ajouterMessageResponse">
@@ -83,20 +93,11 @@
   <wsdl:message name="afficherTagByTypeResponse">
     <wsdl:part name="parameters" element="ns1:afficherTagByTypeResponse" />
   </wsdl:message>
-  <wsdl:message name="afficherTagByType">
-    <wsdl:part name="parameters" element="ns1:afficherTagByType" />
-  </wsdl:message>
-  <wsdl:message name="supprimerResponse">
-    <wsdl:part name="parameters" element="ns1:supprimerResponse" />
-  </wsdl:message>
   <wsdl:message name="afficherTagByAbonne">
     <wsdl:part name="parameters" element="ns1:afficherTagByAbonne" />
   </wsdl:message>
   <wsdl:message name="ajouterMessage">
     <wsdl:part name="parameters" element="ns1:ajouterMessage" />
-  </wsdl:message>
-  <wsdl:message name="supprimerMessageResponse">
-    <wsdl:part name="parameters" element="ns1:supprimerMessageResponse" />
   </wsdl:message>
   <wsdl:message name="afficherTagByAbonneResponse">
     <wsdl:part name="parameters" element="ns1:afficherTagByAbonneResponse" />
@@ -104,8 +105,23 @@
   <wsdl:message name="ajouterMessageResponse">
     <wsdl:part name="parameters" element="ns1:ajouterMessageResponse" />
   </wsdl:message>
+  <wsdl:message name="canalExiste">
+    <wsdl:part name="parameters" element="ns1:canalExiste" />
+  </wsdl:message>
+  <wsdl:message name="supprimerResponse">
+    <wsdl:part name="parameters" element="ns1:supprimerResponse" />
+  </wsdl:message>
+  <wsdl:message name="afficherTagByType">
+    <wsdl:part name="parameters" element="ns1:afficherTagByType" />
+  </wsdl:message>
+  <wsdl:message name="supprimerMessageResponse">
+    <wsdl:part name="parameters" element="ns1:supprimerMessageResponse" />
+  </wsdl:message>
   <wsdl:message name="creer">
     <wsdl:part name="parameters" element="ns1:creer" />
+  </wsdl:message>
+  <wsdl:message name="canalExisteResponse">
+    <wsdl:part name="parameters" element="ns1:canalExisteResponse" />
   </wsdl:message>
   <wsdl:message name="creerResponse">
     <wsdl:part name="parameters" element="ns1:creerResponse" />
@@ -128,6 +144,10 @@
     <wsdl:operation name="supprimerMessage">
       <wsdl:input name="supprimerMessage" message="ns1:supprimerMessage" />
       <wsdl:output name="supprimerMessageResponse" message="ns1:supprimerMessageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="canalExiste">
+      <wsdl:input name="canalExiste" message="ns1:canalExiste" />
+      <wsdl:output name="canalExisteResponse" message="ns1:canalExisteResponse" />
     </wsdl:operation>
     <wsdl:operation name="ajouterMessage">
       <wsdl:input name="ajouterMessage" message="ns1:ajouterMessage" />

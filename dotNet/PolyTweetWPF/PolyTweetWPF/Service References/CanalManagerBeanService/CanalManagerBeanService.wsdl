@@ -31,6 +31,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="canalExiste">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="canalExiste">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="canalExisteResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="afficherTagByType">
       <soap:operation soapAction="" style="document" />
       <wsdl:input name="afficherTagByType">

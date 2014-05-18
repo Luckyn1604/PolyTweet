@@ -2,10 +2,38 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://domain.j2e/" name="MessageManager" targetNamespace="http://domain.j2e/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema xmlns:tns="http://domain.j2e/" elementFormDefault="unqualified" targetNamespace="http://domain.j2e/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="afficherAuteurByID" type="tns:afficherAuteurByID" />
+      <xs:element name="afficherAuteurByIDResponse" type="tns:afficherAuteurByIDResponse" />
+      <xs:element name="afficherDateByID" type="tns:afficherDateByID" />
+      <xs:element name="afficherDateByIDResponse" type="tns:afficherDateByIDResponse" />
+      <xs:element name="afficherIdByTag" type="tns:afficherIdByTag" />
+      <xs:element name="afficherIdByTagResponse" type="tns:afficherIdByTagResponse" />
+      <xs:element name="afficherTexteByID" type="tns:afficherTexteByID" />
+      <xs:element name="afficherTexteByIDResponse" type="tns:afficherTexteByIDResponse" />
       <xs:element name="create" type="tns:create" />
       <xs:element name="createResponse" type="tns:createResponse" />
       <xs:element name="delete" type="tns:delete" />
       <xs:element name="deleteResponse" type="tns:deleteResponse" />
+      <xs:complexType name="afficherIdByTag">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherIdByTagResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherDateByID">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherDateByIDResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
       <xs:complexType name="delete">
         <xs:sequence>
           <xs:element name="arg0" type="xs:long" />
@@ -14,6 +42,16 @@
       <xs:complexType name="deleteResponse">
         <xs:sequence>
           <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherTexteByID">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherTexteByIDResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="create">
@@ -28,8 +66,21 @@
           <xs:element name="return" type="xs:long" />
         </xs:sequence>
       </xs:complexType>
+      <xs:complexType name="afficherAuteurByID">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="afficherAuteurByIDResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
     </xs:schema>
   </wsdl:types>
+  <wsdl:message name="afficherTexteByIDResponse">
+    <wsdl:part name="parameters" element="ns1:afficherTexteByIDResponse" />
+  </wsdl:message>
   <wsdl:message name="create">
     <wsdl:part name="parameters" element="ns1:create" />
   </wsdl:message>
@@ -39,17 +90,54 @@
   <wsdl:message name="delete">
     <wsdl:part name="parameters" element="ns1:delete" />
   </wsdl:message>
+  <wsdl:message name="afficherDateByID">
+    <wsdl:part name="parameters" element="ns1:afficherDateByID" />
+  </wsdl:message>
+  <wsdl:message name="afficherDateByIDResponse">
+    <wsdl:part name="parameters" element="ns1:afficherDateByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="afficherIdByTag">
+    <wsdl:part name="parameters" element="ns1:afficherIdByTag" />
+  </wsdl:message>
+  <wsdl:message name="afficherAuteurByIDResponse">
+    <wsdl:part name="parameters" element="ns1:afficherAuteurByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="afficherAuteurByID">
+    <wsdl:part name="parameters" element="ns1:afficherAuteurByID" />
+  </wsdl:message>
+  <wsdl:message name="afficherTexteByID">
+    <wsdl:part name="parameters" element="ns1:afficherTexteByID" />
+  </wsdl:message>
   <wsdl:message name="deleteResponse">
     <wsdl:part name="parameters" element="ns1:deleteResponse" />
   </wsdl:message>
+  <wsdl:message name="afficherIdByTagResponse">
+    <wsdl:part name="parameters" element="ns1:afficherIdByTagResponse" />
+  </wsdl:message>
   <wsdl:portType name="MessageManager">
+    <wsdl:operation name="afficherIdByTag">
+      <wsdl:input name="afficherIdByTag" message="ns1:afficherIdByTag" />
+      <wsdl:output name="afficherIdByTagResponse" message="ns1:afficherIdByTagResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="afficherDateByID">
+      <wsdl:input name="afficherDateByID" message="ns1:afficherDateByID" />
+      <wsdl:output name="afficherDateByIDResponse" message="ns1:afficherDateByIDResponse" />
+    </wsdl:operation>
     <wsdl:operation name="delete">
       <wsdl:input name="delete" message="ns1:delete" />
       <wsdl:output name="deleteResponse" message="ns1:deleteResponse" />
     </wsdl:operation>
+    <wsdl:operation name="afficherTexteByID">
+      <wsdl:input name="afficherTexteByID" message="ns1:afficherTexteByID" />
+      <wsdl:output name="afficherTexteByIDResponse" message="ns1:afficherTexteByIDResponse" />
+    </wsdl:operation>
     <wsdl:operation name="create">
       <wsdl:input name="create" message="ns1:create" />
       <wsdl:output name="createResponse" message="ns1:createResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="afficherAuteurByID">
+      <wsdl:input name="afficherAuteurByID" message="ns1:afficherAuteurByID" />
+      <wsdl:output name="afficherAuteurByIDResponse" message="ns1:afficherAuteurByIDResponse" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>
