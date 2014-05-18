@@ -27,34 +27,6 @@ namespace PolyTweetWPF
 
         private string login;
 
-        private Dictionary<string, Canal> canaux;
-        private void InitData()
-        {
-            Message m1 = new Message("admin", DateTime.Now, "message 1");
-            Message m2 = new Message("moi", DateTime.Now.AddDays(-1), "message 2");
-            Message m3 = new Message("toi", DateTime.Now.AddMonths(-1), "message 3");
-            Message m4 = new Message("admin", DateTime.Now.AddDays(-10), "message 4");
-
-            Canal c1 = new Canal("canal public 1", true);
-            c1.addMessage(m1);
-            c1.addMessage(m2);
-            Canal c2 = new Canal("canal public 2", true);
-            c2.addMessage(m2);
-            c2.addMessage(m3);
-            Canal c3 = new Canal("canal prive 1", false);
-            c3.addMessage(m1);
-            c3.addMessage(m4);
-
-            canaux = new Dictionary<string, Canal>();
-            canaux.Add(c1.tag, c1);
-            canaux.Add(c2.tag, c2);
-            canaux.Add(c3.tag, c3);
-
-            canalManager.creer("canalPublic", "PUBLIC", "toto");
-            canalManager.creer("canalPrive", "PRIVE", "test");
-//            long msg = messageManager.create("voici un message", "canalPublic", "toto");
-        }
-
         public MainWindow() : this("anonyme")
         {}
 
@@ -68,7 +40,6 @@ namespace PolyTweetWPF
 
             this.login = login;
             InitializeComponent();
-            InitData();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
             if (login != "anonyme")
@@ -92,11 +63,6 @@ namespace PolyTweetWPF
 
                 
             }
-           foreach (var c in canaux)
-            {
-                if (c.Value.isPublic || login != "anonyme")
-                    ComboBoxCanaux.Items.Add(c.Key);
-            }
 
             if (canalManager.afficherTagByType("PUBLIC") != null)
                 foreach (var c in canalManager.afficherTagByType("PUBLIC")) 
@@ -105,7 +71,18 @@ namespace PolyTweetWPF
 
         private void refreshMessages(object sender, RoutedEventArgs e)
         {
-           DataGridMessage.ItemsSource = canaux[ComboBoxCanaux.SelectedItem.ToString()].messages.AsParallel();
+            String selection = ComboBoxCanaux.SelectedItem.ToString();
+            List<Message> list = new List<Message>();
+            if (messageManager.afficherIdByTag(selection) != null)
+                foreach (var idMsg in messageManager.afficherIdByTag(selection))
+                {
+                    String auteur = messageManager.afficherAuteurByID(idMsg);
+                    String date = messageManager.afficherDateByID(idMsg);
+                    String texte = messageManager.afficherTexteByID(idMsg);
+                    Message m = new Message(idMsg, auteur, date, texte);
+                    list.Add(m);
+                }
+            DataGridMessage.ItemsSource = list;
         }
 
         private void buttonConnexion_Click(object sender, RoutedEventArgs e)
@@ -126,12 +103,15 @@ namespace PolyTweetWPF
         private void buttonCreerCanal_Click(object sender, RoutedEventArgs e)
         {
             string newTag = newCanalTag.Text; 
-            if (!canaux.ContainsKey(newTag))
+            if (!canalManager.canalExiste(newTag))
             {
-                bool newIsPublic = newCanalIsPublic.IsChecked.Value && newCanalIsPublic.IsChecked.HasValue;
-                Canal tmp = new Canal(newTag, newIsPublic);
-                canaux.Add(tmp.tag,tmp);
-                if (newIsPublic || login!="anonyme") ComboBoxCanaux.Items.Add(newTag);
+                String newIsPublic;
+                if (newCanalIsPublic.IsChecked.Value && newCanalIsPublic.IsChecked.HasValue)
+                    newIsPublic = "PUBLIC";
+                else
+                    newIsPublic = "PRIVE";
+                canalManager.creer(newTag, newIsPublic, login);
+                ComboBoxCanaux.Items.Add(newTag);
                 ResultCreationCanal.Content = "Canal créé avec succès !";
             }
             else
@@ -143,8 +123,7 @@ namespace PolyTweetWPF
         {
             if (ComboBoxCanaux.SelectedValue != null)
             {
-                Message m = new Message(login, DateTime.Now, newMessageBox.Text);
-                canaux[ComboBoxCanaux.SelectedItem.ToString()].addMessage(m);
+                messageManager.create(newMessageBox.Text, ComboBoxCanaux.SelectedValue.ToString(), login);
                 refreshMessages(sender, e);
             }
         }
