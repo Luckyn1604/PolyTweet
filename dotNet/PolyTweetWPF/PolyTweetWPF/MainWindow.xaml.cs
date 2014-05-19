@@ -20,9 +20,7 @@ namespace PolyTweetWPF
     public partial class MainWindow : Window
     {
         private UtilisateurManagerBeanService.UtilisateurManagerClient utilisateurManager;
-        private UtilisateurFinderBeanService.UtilisateurFinderClient utilisateurFinder;
         private CanalManagerBeanService.CanalManagerClient canalManager;
-        private CanalFinderBeanService.CanalFinderClient canalFinder;
         private MessageManagerBeanService.MessageManagerClient messageManager;
 
         private string login;
@@ -33,9 +31,7 @@ namespace PolyTweetWPF
         public MainWindow(string login)
         {
             utilisateurManager = new UtilisateurManagerBeanService.UtilisateurManagerClient();
-            utilisateurFinder = new UtilisateurFinderBeanService.UtilisateurFinderClient();
             canalManager = new CanalManagerBeanService.CanalManagerClient();
-            canalFinder = new CanalFinderBeanService.CanalFinderClient();
             messageManager = new MessageManagerBeanService.MessageManagerClient();
 
             this.login = login;

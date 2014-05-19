@@ -70,7 +70,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Canal.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -86,16 +85,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\Service1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\CanalFinderBeanService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\UtilisateurFinderBeanService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -145,21 +134,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\CanalFinderBeanService\PolyTweetWPF.CanalFinderBeanService.canal.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CanalFinderBeanService\PolyTweetWPF.CanalFinderBeanService.findCanalByAbonneResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CanalFinderBeanService\PolyTweetWPF.CanalFinderBeanService.findCanalByProprietaireResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CanalFinderBeanService\PolyTweetWPF.CanalFinderBeanService.findCanalByTagResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\CanalFinderBeanService\PolyTweetWPF.CanalFinderBeanService.findCanalByTypeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\CanalManagerBeanService\CanalManager.wsdl" />
     <None Include="Service References\CanalManagerBeanService\CanalManagerBeanService.wsdl" />
     <None Include="Service References\CanalManagerBeanService\PolyTweetWPF.CanalManagerBeanService.afficherTagByAbonneResponse.datasource">
@@ -222,16 +196,6 @@
     <None Include="Service References\Service1\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CanalFinderBeanService\CanalFinder.wsdl" />
-    <None Include="Service References\CanalFinderBeanService\CanalFinderBeanService.wsdl" />
-    <None Include="Service References\UtilisateurFinderBeanService\PolyTweetWPF.UtilisateurFinderBeanService.findUtilisateurByLoginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UtilisateurFinderBeanService\PolyTweetWPF.UtilisateurFinderBeanService.utilisateur.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UtilisateurFinderBeanService\UtilisateurFinder.wsdl" />
-    <None Include="Service References\UtilisateurFinderBeanService\UtilisateurFinderBeanService.wsdl" />
     <None Include="Service References\UtilisateurManagerBeanService\PolyTweetWPF.UtilisateurManagerBeanService.accepterAbonnementResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -287,8 +251,6 @@
     <WCFMetadataStorage Include="Service References\CanalManagerBeanService\" />
     <WCFMetadataStorage Include="Service References\MessageManagerBeanService\" />
     <WCFMetadataStorage Include="Service References\Service1\" />
-    <WCFMetadataStorage Include="Service References\CanalFinderBeanService\" />
-    <WCFMetadataStorage Include="Service References\UtilisateurFinderBeanService\" />
     <WCFMetadataStorage Include="Service References\UtilisateurManagerBeanService\" />
   </ItemGroup>
   <ItemGroup>
@@ -343,18 +305,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CanalFinderBeanService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\CanalFinderBeanService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\CanalFinderBeanService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 et x64%29</ProductName>
@@ -370,18 +320,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UtilisateurFinderBeanService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UtilisateurFinderBeanService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UtilisateurFinderBeanService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
